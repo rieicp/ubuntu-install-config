@@ -51,10 +51,10 @@ source /etc/profile
 ### 安装PHPStorm
 ```
 下载安装包
-   wget https://download-cf.jetbrains.com/webide/PhpStorm-2017.2.1.tar.gz
+  wget https://download.jetbrains.com/webide/PhpStorm-2017.2.1.tar.gz
 
 切换到下载目录，然后使用以下命令解压缩.tar.gz文件：
-  tar xvf PhpStorm-2016.2.1.tar.gz
+  tar xvf PhpStorm-2017.2.1.tar.gz
 
 在当前工作目录中出现一个名为PhpStorm-xxxxxx的新文件夹。 最好将此文件夹移动到 /opt。
   sudo mv PhpStorm-xxxxxx/ /opt/phpstorm/
