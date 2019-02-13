@@ -11,6 +11,7 @@
 * LAMP
 * Sublime
 * JAVA
+* Eclipse
 * PHPStorm
 
 ### 安装JAVA
@@ -26,6 +27,25 @@ sudo apt-get install java-common oracle-java8-installer
 在安装过程中，您将需要接受Oracle许可协议。 一旦安装，我们需要在Ubuntu上设置Java环境变量，如JAVA_HOME。
 sudo apt-get install oracle-java8-set-default 
 source /etc/profile
+```
+
+### 安装Eclipse
+```
+下载64位
+    http://mirrors.ustc.edu.cn/eclipse/oomph/epp/2018-12/R/eclipse-inst-linux64.tar.gz
+
+下载32位
+    http://mirrors.ustc.edu.cn/eclipse/technology/epp/downloads/release/neon/3/eclipse-jee-neon-3-linux-gtk.tar.gz
+
+解压缩
+    tar xvfz
+
+拷贝到/opt
+    sudo mv eclipse /opt/
+
+建立链接
+    sudo ln -s /opt/eclipse/eclipse /usr/local/bin/eclipse
+    ln -s /opt/eclipse/eclipse ~/Desktop/eclipse
 ```
 
 ### 安装PHPStorm
