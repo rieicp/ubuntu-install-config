@@ -1,0 +1,16 @@
+https://wenwen.sogou.com/z/q550592420.htm
+
+Ubuntu下隐藏Windows的系统分区
+
+
+可以删除双击自动加载功能
+sudo gedit /var/lib/polkit-1/localauthority/10-vendor.d/com.ubuntu.desktop.pkla
+
+删除以下内容。（先做好备份）
+
+[Mounting, checking, etc. of internal drives]
+Identity=unix-group:admin
+Action=org.freedesktop.udisks.filesystem-*;org.freedesktop.udisks.drive-ata-smart*
+ResultActive=yes
+
+
