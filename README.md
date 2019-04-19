@@ -11,15 +11,16 @@
 * SSH-Key
 * 设置 JetBrain Host 0.0.0.0
 * 安装git, gitk, giggle, gedit, chrome, filezilla
+* 安装opera
 * 安装composer
 * 安装中文输入法
-* LAMP
+* 安装LAMP
 * 安装MySQL Workbench
 * MySQL Access Error
 * SSH Server
-* JAVA
-* Eclipse
-* PHPStorm
+* 安装JAVA
+* 安装Eclipse
+* 安装PHPStorm
 
 
 ### 安装Sublime
@@ -69,6 +70,15 @@ sudo apt install giggle
 sudo apt install gedit
 sudo apt install chromium-browser
 sudo apt install filezilla
+```
+
+### 安装opera
+```
+Ubuntu 18.04 / XUbuntu 18.04
+  软件中心
+
+Ubuntu 16.04
+  Google搜索'opera deb download'
 ```
 
 ### 安装composer
@@ -171,8 +181,12 @@ xdebug.max_nesting_level = 400
 
 ### 安装MySQL Workbench
 ```
-download DEB from
-  https://dev.mysql.com/downloads/workbench/
+Ubuntu 18.04 / XUbuntu 18.04
+  软件中心
+
+Ubuntu 16.04
+  download DEB from
+    https://dev.mysql.com/downloads/workbench/
 ```
 
 ### MySQL Access Error
