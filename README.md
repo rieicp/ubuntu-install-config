@@ -5,11 +5,11 @@
 * 安装
 * 配置
 
-## 安装/创建
+## 目录
 * Sublime
 * bash shell 历史上下键翻页
 * SSH-Key
-* 配置 JetBrain Host 0.0.0.0
+* 设置 JetBrain Host 0.0.0.0
 * 安装git, gitk, giggle, gedit, chrome, filezilla
 * 安装composer
 * 安装中文输入法
@@ -55,7 +55,7 @@ ssh-keygen -t rsa -C "ning.wei@int-trade.de"
 cat ~/.ssh/id_rsa.pub
 ```
 
-### 配置 JetBrains Host 0.0.0.0
+### 设置 JetBrains Host 0.0.0.0
 ```
 0.0.0.0 account.jetbrains.com
 0.0.0.0 www.jetbrains.com
@@ -86,7 +86,15 @@ Commands:
 首先安装中文语言
 
 然后安装Fcitx
-  sudo apt install fcitx fcitx-googlepinyin
+
+  Ubuntu 18.04/XUbuntu 18.04
+    在软件中心搜索'fcitx'，安装列出的所有三个软件。
+
+  Ubuntu 16.04
+    sudo apt install fcitx
+
+接着安装Google拼音
+  sudo apt install fcitx-googlepinyin
 
 在系统设置（System Setting）> 语言支持（Language Support）下选择Fcitx
 
@@ -241,7 +249,7 @@ Ubuntu 16.04
 启动PHP storm
   phpstorm
 
-Registration Code
+注册码Registration Code
   http://idea.lanyus.com/
 ```
 
