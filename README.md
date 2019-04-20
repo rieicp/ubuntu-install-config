@@ -140,23 +140,29 @@ Commands:
   ln -s /var/log/mysql/error.log mysql_error_log
   ln -s /etc/mysql/my.cnf my.cnf
 
+安装adminer
+  sudo mkdir /usr/share/adminer
+  sudo wget "http://www.adminer.org/latest.php" -O /usr/share/adminer/latest.php
+  sudo ln -s /usr/share/adminer/latest.php /usr/share/adminer/adminer.php
+  echo "Alias /adminer.php /usr/share/adminer/adminer.php" | sudo tee /etc/apache2/conf-available/adminer.conf
+  sudo a2enconf adminer.conf
+  sudo systemctl reload apache2
 
-###### 000-default.conf ######
 
+Apache Vhost 配置文件：000-default.conf
 <VirtualHost *:80>
-    ServerName newsroom
-    DocumentRoot "/home/nwe/temp/newsroom"
-    <Directory  "/home/nwe/temp/newsroom/">
+    ServerName login_oauth
+    DocumentRoot "/home/nwe/projects/login_oauth"
+    <Directory  "/home/nwe/projects/typo3/">
         Options +Indexes +Includes +FollowSymLinks +MultiViews
         AllowOverride All
         Require local
     </Directory>
 </VirtualHost>
-#
+
 
 ;;;;;; php.ini ;;;;;;
-
-[xdebug]
+;;[xdebug]
 ;;zend_extension = /usr/lib/php/20160303/xdebug.so
 
 ;;用来显示错误信息
