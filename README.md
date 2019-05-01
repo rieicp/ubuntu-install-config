@@ -21,6 +21,7 @@
 * 安装JAVA
 * 安装PHPStorm
 * 安装Eclipse
+* 安装kolourpaint, shutter
 
 
 ### 安装Sublime
@@ -277,6 +278,12 @@ Ubuntu 16.04
 建立链接
     sudo ln -s /opt/eclipse/eclipse /usr/local/bin/eclipse
     ln -s /opt/eclipse/eclipse ~/Desktop/eclipse
+```
+
+### 安装kolourpaint, shutter
+```
+  sudo apt install kolourpaint4
+  sudo apt install shutter
 ```
 
 ### 其它命令
