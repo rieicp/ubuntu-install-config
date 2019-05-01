@@ -12,22 +12,26 @@
 * 设置 JetBrain Host 0.0.0.0
 * 安装git, gitk, giggle, gedit, chrome, filezilla
 * 安装opera
-* 安装composer
 * 安装中文输入法
 * 安装LAMP
+* 安装composer
 * 安装MySQL Workbench
 * MySQL Access Error
 * SSH Server
 * 安装JAVA
-* 安装Eclipse
 * 安装PHPStorm
+* 安装Eclipse
 
 
 ### 安装Sublime
 ```
 Ubuntu 18.04
-  sudo snap install sublime-text --classic
-  sudo ln -s /snap/sublime-text/xxxxx/opt/sublime_text/sublime_text /usr/local/bin/sublime
+  在软件中心查找/安装
+  或
+    sudo snap install sublime-text --classic
+
+  创建sublime命令快捷方式
+    sudo ln -s /snap/sublime-text/xxxxx/opt/sublime_text/sublime_text /usr/local/bin/sublime
 
 Ubuntu 16.04
   wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
@@ -68,8 +72,8 @@ sudo apt install git
 sudo apt install gitk
 sudo apt install giggle
 sudo apt install gedit
-sudo apt install chromium-browser
-sudo apt install filezilla
+在软件中心查找/安装chrome 或 sudo apt install chromium-browser
+在软件中心查找/安装filezilla 或 sudo apt install filezilla
 ```
 
 ### 安装opera
@@ -79,16 +83,6 @@ Ubuntu 18.04 / XUbuntu 18.04
 
 Ubuntu 16.04
   Google搜索'opera deb download'
-```
-
-### 安装composer
-```
-Download composer.phar
-  https://getcomposer.org/download/
-
-Commands:
-  chmod 774 composer.phar
-  sudo mv composer.phar /usr/local/bin/composer
 ```
 
 ### 安装中文输入法
@@ -185,6 +179,16 @@ xdebug.max_nesting_level = 400
 
 ```
 
+### 安装composer
+```
+Download composer.phar
+  https://getcomposer.org/download/
+
+Commands:
+  chmod 774 composer.phar
+  sudo mv composer.phar /usr/local/bin/composer
+```
+
 ### 安装MySQL Workbench
 ```
 Ubuntu 18.04 / XUbuntu 18.04
@@ -229,29 +233,12 @@ sudo apt-get install oracle-java8-set-default
 source /etc/profile
 ```
 
-### 安装Eclipse
-```
-下载64位
-    http://mirrors.ustc.edu.cn/eclipse/oomph/epp/2018-12/R/eclipse-inst-linux64.tar.gz
-
-下载32位
-    http://mirrors.ustc.edu.cn/eclipse/technology/epp/downloads/release/neon/3/eclipse-jee-neon-3-linux-gtk.tar.gz
-
-解压缩
-    tar xvfz
-
-拷贝到/opt
-    sudo mv eclipse /opt/
-
-建立链接
-    sudo ln -s /opt/eclipse/eclipse /usr/local/bin/eclipse
-    ln -s /opt/eclipse/eclipse ~/Desktop/eclipse
-```
-
 ### 安装PHPStorm
 ```
 Ubuntu 18.04
-  sudo snap install phpstorm --classic
+  软件中心
+  或
+    sudo snap install phpstorm --classic
 
 Ubuntu 16.04
 下载安装包
@@ -271,6 +258,25 @@ Ubuntu 16.04
 
 注册码Registration Code
   http://idea.lanyus.com/
+```
+
+### 安装Eclipse
+```
+下载64位
+    http://mirrors.ustc.edu.cn/eclipse/oomph/epp/2018-12/R/eclipse-inst-linux64.tar.gz
+
+下载32位
+    http://mirrors.ustc.edu.cn/eclipse/technology/epp/downloads/release/neon/3/eclipse-jee-neon-3-linux-gtk.tar.gz
+
+解压缩
+    tar xvfz
+
+拷贝到/opt
+    sudo mv eclipse /opt/
+
+建立链接
+    sudo ln -s /opt/eclipse/eclipse /usr/local/bin/eclipse
+    ln -s /opt/eclipse/eclipse ~/Desktop/eclipse
 ```
 
 ### 其它命令
