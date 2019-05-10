@@ -12,6 +12,7 @@
 * 设置 JetBrain Host 0.0.0.0
 * 安装git, gitk, giggle, gedit, chrome, filezilla
 * 安装opera
+* 安装Sticky Notes(indicator-stickynotes)
 * 安装中文输入法
 * 安装LAMP
 * 安装composer
@@ -84,6 +85,18 @@ Ubuntu 18.04 / XUbuntu 18.04
 
 Ubuntu 16.04
   Google搜索'opera deb download'
+```
+
+### 安装Sticky Notes(indicator-stickynotes)
+```
+(注意，Ubuntu 16.04下选择无反色效果，看不出所选的内容，不好)
+(XUbuntu 18.04自带Notes，无须额外安装)
+(应该只在Ubuntu 18.04下安装)
+
+----- 命令行 -----
+  sudo add-apt-repository ppa:umang/indicator-stickynotes
+  sudo apt update
+  sudo apt install indicator-stickynotes
 ```
 
 ### 安装中文输入法
@@ -236,19 +249,16 @@ source /etc/profile
 
 ### 安装PHPStorm
 ```
-Ubuntu 18.04
-  软件中心
-  或
-    sudo snap install phpstorm --classic
+注意！因为认证注册码有问题，Ubuntu 18.04下
+不再推荐在软件中心安装或sudo snap install phpstorm --classic
 
-Ubuntu 16.04
 下载安装包
-  wget https://download.jetbrains.com/webide/PhpStorm-2017.2.1.tar.gz
+  wget https://download-cf.jetbrains.com/webide/PhpStorm-2018.3.tar.gz
 
 切换到下载目录，然后使用以下命令解压缩.tar.gz文件：
-  tar xvf PhpStorm-2017.2.1.tar.gz
+  tar xvfz PhpStorm-2018.3.tar.gz
 
-在当前工作目录中出现一个名为PhpStorm-xxxxxx的新文件夹。 最好将此文件夹移动到 /opt。
+在当前工作目录中出现一个名为PhpStorm-xxxxxx的新文件夹。 将此文件夹移动到 /opt。
   sudo mv PhpStorm-xxxxxx/ /opt/phpstorm/
 
 建立连接
