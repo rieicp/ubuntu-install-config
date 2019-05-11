@@ -22,7 +22,7 @@
 * 安装JAVA
 * 安装PHPStorm
 * 安装Eclipse
-* 安装kolourpaint, shutter
+* 安装kolourpaint
 
 
 ### 安装Sublime
@@ -290,10 +290,9 @@ source /etc/profile
     ln -s /opt/eclipse/eclipse ~/Desktop/eclipse
 ```
 
-### 安装kolourpaint, shutter
+### 安装kolourpaint
 ```
   sudo apt install kolourpaint4
-  sudo apt install shutter
 ```
 
 ### 其它命令
