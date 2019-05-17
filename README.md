@@ -10,22 +10,22 @@
 * bash shell 历史上下键翻页
 * SSH-Key
 * 设置 JetBrain Host 0.0.0.0
-* 安装git, gitk, giggle, gedit, chrome, filezilla
-* 安装opera
-* 安装Sticky Notes
+* 安装 git, gitk, giggle, gedit, chrome, filezilla
+* 安装 opera
+* 安装 Sticky Notes
 * 安装中文输入法
-* 安装LAMP
-* 安装composer
-* 安装MySQL Workbench
-* MySQL Access Error
-* SSH Server
-* 安装JAVA
-* 安装PHPStorm
-* 安装Eclipse
-* 安装kolourpaint
+* 安装 LAMP
+* 安装 composer
+* 安装 MySQL Workbench
+* 处理 MySQL Access Error
+* 安装 SSH Server
+* 安装 JAVA
+* 安装 PHPStorm
+* 安装 Eclipse
+* 安装 kolourpaint
 
 
-### 安装Sublime
+### 安装 Sublime
 ```
 Ubuntu 18.04
   在软件中心查找/安装
@@ -54,7 +54,7 @@ then
 fi
 ```
 
-### 创建SSH-Key
+### 创建 SSH-Key
 ```
 ssh-keygen -t rsa -C "ning.wei@int-trade.de"
 
@@ -68,7 +68,7 @@ cat ~/.ssh/id_rsa.pub
 0.0.0.0 www.jetbrains.com
 ```
 
-### 安装git, gitk, giggle, gedit, chrome, filezilla
+### 安装 git, gitk, giggle, gedit, chrome, filezilla
 ```
 sudo apt install git
 sudo apt install gitk
@@ -78,7 +78,7 @@ sudo apt install gedit
 在软件中心查找/安装filezilla 或 sudo apt install filezilla
 ```
 
-### 安装opera
+### 安装 opera
 ```
 Ubuntu 18.04 / XUbuntu 18.04
   软件中心
@@ -87,7 +87,7 @@ Ubuntu 16.04
   Google搜索'opera deb download'
 ```
 
-### 安装Sticky Notes
+### 安装 Sticky Notes
 #### (a) indicator-stickynotes
 ```
 (注意，Ubuntu 16.04下选择无反色效果，看不出所选的内容，不好)
@@ -129,7 +129,7 @@ sudo ln -s /usr/bin/xfce4-notes /usr/bin/notes
 例如Google Pinyin。然后就可以使用了。使用时可通过Ctrl+空格，进行输入法切换。
 ```
 
-### 安装LAMP
+### 安装 LAMP
 ```
   sudo apt install apache2 mysql-server mysql-client
   sudo apt-get install software-properties-common
@@ -200,7 +200,7 @@ xdebug.max_nesting_level = 400
 
 ```
 
-### 安装composer
+### 安装 composer
 ```
 Download composer.phar
   https://getcomposer.org/download/
@@ -210,7 +210,7 @@ Commands:
   sudo mv composer.phar /usr/local/bin/composer
 ```
 
-### 安装MySQL Workbench
+### 安装 MySQL Workbench
 ```
 Ubuntu 18.04 / XUbuntu 18.04
   软件中心
@@ -220,7 +220,7 @@ Ubuntu 16.04
     https://dev.mysql.com/downloads/workbench/
 ```
 
-### MySQL Access Error
+### 处理 MySQL Access Error
 ```
 若出现 MySQL Error 错误: 'Access denied for user 'root'@'localhost'
 则需要编辑 /etc/mysql/mysql.conf.d/mysqld.cnf
@@ -231,7 +231,7 @@ Ubuntu 16.04
     sudo service mysql restart
 ```
 
-### 安装SSH Server
+### 安装 SSH Server
 ```
 sudo apt install openssh-server
 
@@ -239,7 +239,7 @@ sudo apt install openssh-server
 service ssh status
 ```
 
-### 安装JAVA
+### 安装 JAVA
 
 ```
 sudo apt-get remove openjdk*
@@ -254,7 +254,7 @@ sudo apt-get install oracle-java8-set-default
 source /etc/profile
 ```
 
-### 安装PHPStorm
+### 安装 PHPStorm
 ```
 注意！因为认证注册码有问题，Ubuntu 18.04下
 不再推荐在软件中心安装或sudo snap install phpstorm --classic
@@ -278,7 +278,7 @@ source /etc/profile
   http://idea.lanyus.com/
 ```
 
-### 安装Eclipse
+### 安装 Eclipse
 ```
 下载64位
     http://mirrors.ustc.edu.cn/eclipse/oomph/epp/2018-12/R/eclipse-inst-linux64.tar.gz
@@ -297,7 +297,7 @@ source /etc/profile
     ln -s /opt/eclipse/eclipse ~/Desktop/eclipse
 ```
 
-### 安装kolourpaint
+### 安装 kolourpaint
 ```
   sudo apt install kolourpaint4
 ```
