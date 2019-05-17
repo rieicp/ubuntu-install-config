@@ -12,7 +12,7 @@
 * 设置 JetBrain Host 0.0.0.0
 * 安装git, gitk, giggle, gedit, chrome, filezilla
 * 安装opera
-* 安装Sticky Notes(indicator-stickynotes)
+* 安装Sticky Notes
 * 安装中文输入法
 * 安装LAMP
 * 安装composer
@@ -87,7 +87,8 @@ Ubuntu 16.04
   Google搜索'opera deb download'
 ```
 
-### 安装Sticky Notes(indicator-stickynotes)
+### 安装Sticky Notes
+#### (a) indicator-stickynotes
 ```
 (注意，Ubuntu 16.04下选择无反色效果，看不出所选的内容，不好)
 (XUbuntu 18.04自带Notes，无须额外安装)
@@ -97,6 +98,12 @@ Ubuntu 16.04
   sudo add-apt-repository ppa:umang/indicator-stickynotes
   sudo apt update
   sudo apt install indicator-stickynotes
+```
+#### (b) xfce4-notes
+```
+sudo apt install xfce4-notes
+sudo ln -s /usr/bin/xfce4-notes /usr/bin/notes
+
 ```
 
 ### 安装中文输入法
