@@ -42,11 +42,12 @@ Ubuntu 16.04
   sudo apt-get update
   sudo apt-get install sublime-text
   sudo ln -s /opt/sublime_text/sublime_text /usr/local/bin/sublime
-```
+
 设置
   127.0.0.1 license.sublimehq.com
   127.0.0.1 45.55.255.55
   127.0.0.1 45.55.41.223
+```
 
 ### bash shell 历史上下键翻页
 ```
