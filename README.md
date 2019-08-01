@@ -258,6 +258,17 @@ sudo apt-get install java-common oracle-java8-installer
 sudo apt-get install oracle-java8-set-default 
 source /etc/profile
 ```
+若apt无法安装，可以手动下载安装配置
+```
+Download the latest JAVA 8 SE development kit from here: https://www.oracle.com/technetwork/java/javase/downloads/java-archive-javase8-2177648.html
+
+$mkdir /opt/jdk.
+$tar -zxf jdk-8u5-linux-x64.tar.gz -C /opt/jdk.
+
+Set oracle JDK as the default JVM by running those two instructions:
+    $update-alternatives --install /usr/bin/java java /opt/jdk/jdk1.8.0_$YourVersion$/bin/java 100
+    $update-alternatives --install /usr/bin/javac javac /opt/jdk/jdk1.8.0_$YourVersion$/bin/javac 100
+```
 
 ### 安装 PHPStorm
 ```
