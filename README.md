@@ -73,7 +73,7 @@ cat ~/.ssh/id_rsa.pub
 0.0.0.0 www.jetbrains.com
 ```
 
-### 安装 git, gitk, giggle, gedit, chrome, filezilla
+### 安装 git, gitk, giggle, gedit, chromium, filezilla, chrome
 ```
 sudo apt install git
 sudo apt install gitk
@@ -81,6 +81,13 @@ sudo apt install giggle
 sudo apt install gedit
 在软件中心查找/安装chrome 或 sudo apt install chromium-browser
 在软件中心查找/安装filezilla 或 sudo apt install filezilla
+
+......安装Chrome......
+wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | sudo tee /etc/apt/sources.list.d/google-chrome.list
+sudo apt-get update 
+sudo apt-get install google-chrome-stable
+
 ```
 
 ### 安装 opera
