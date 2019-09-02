@@ -10,7 +10,7 @@
 * bash shell 历史上下键翻页
 * SSH-Key
 * 设置 JetBrain Host 0.0.0.0
-* 安装 git, gitk, giggle, gedit, chrome, filezilla
+* 安装 git, gitk, giggle, gedit, chromium, filezilla, chrome
 * 安装 opera
 * 安装 Sticky Notes
 * 安装中文输入法
