@@ -9,7 +9,6 @@
 * Sublime
 * bash shell 历史上下键翻页
 * SSH-Key
-* 设置 JetBrain Host 0.0.0.0
 * 安装 git, gitk, giggle, gedit, chromium, filezilla, chrome
 * 安装 opera
 * 安装 Sticky Notes
@@ -65,12 +64,6 @@ ssh-keygen -t rsa -C "ning.wei@int-trade.de"
 
 查看生成的key(可将此key拷贝至github等处)：
 cat ~/.ssh/id_rsa.pub
-```
-
-### 设置 JetBrains Host 0.0.0.0
-```
-0.0.0.0 account.jetbrains.com
-0.0.0.0 www.jetbrains.com
 ```
 
 ### 安装 git, gitk, giggle, gedit, chromium, filezilla, chrome
@@ -296,6 +289,10 @@ Set oracle JDK as the default JVM by running those two instructions:
 
 启动PHP storm
   phpstorm
+
+设置hosts
+  0.0.0.0 account.jetbrains.com
+  0.0.0.0 www.jetbrains.com  
 
 注册码Registration Code
   http://idea.lanyus.com/
