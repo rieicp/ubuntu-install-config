@@ -359,9 +359,10 @@ fi
 /////////////////////////////////////////////////////////////////////
 
 docker ps (-l)
+```
 //// CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
 //// 69cc62646adc        ubuntu              "/bin/bash"         18 minutes ago      Up 18 minutes                           naughty_tu
-
+```
 docker commit 69cc62646adc rieicp/lamp
 
 docker run -it -p 8888:80 rieicp/lamp /bin/bash
