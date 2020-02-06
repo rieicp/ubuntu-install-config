@@ -371,13 +371,14 @@ nano /root/.ssh/authorized_keys ===> 然后将Host中~/.ssh/id_rsa.pub的内容�
 ```
 
 然后，最好设置如下的文件/目录权限：
-~/.ssh在服务器上的权限应为700。文件~/.ssh/authorized_keys（在服务器上）的模式应为600。Host上的（私有）密钥 (文件id_rsa)的权限应为600。
+\~/.ssh在服务器上的权限应为700。文件\~/.ssh/authorized_keys（在服务器上）的模式应为600。Host上的（私有）密钥 (文件id_rsa)的权限应为600。
 然后，在Host中应该就能用以下命令行访问SSH服务器了
+
 ```
 ssh root@container-ip
 ```
 
-##保存/提交Image镜像
+## 保存/提交Image镜像
 
 在Host中：
 ```
@@ -393,6 +394,3 @@ docker commit 69cc62646adc rieicp/lamp
 ```
 docker run -it -p 8888:80 rieicp/lamp /bin/bash
 ```
-
-
-
