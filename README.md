@@ -355,7 +355,7 @@ a2enmod rewrite
 service apache2 restart
 ```
 
-## 配置命令行历史上下键翻页
+## 配置服务器启动，命令行历史上下键翻页
 
 然后，在 \~/.bashrc中加入：
 
@@ -365,6 +365,9 @@ then
     bind '"\e[A": history-search-backward'
     bind '"\e[B": history-search-forward'
 fi
+
+service ssh start
+service apache2 start
 ```
 
 ## 配置SSH的密钥登录
