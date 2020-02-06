@@ -332,7 +332,7 @@ Set oracle JDK as the default JVM by running those two instructions:
 
 # Docker Image 创建，保存（提交）
 
-
+(docker pull ubuntu)
 docker run -it ubuntu /bin/bash
 
 apt update -y
@@ -349,11 +349,13 @@ service apache2 restart
 
 
 ////////////// 在~/.bashrc中添加： /////////////////////////////////////
+```
 if [[ $- == *i* ]]
 then
     bind '"\e[A": history-search-backward'
     bind '"\e[B": history-search-forward'
 fi
+```
 /////////////////////////////////////////////////////////////////////
 
 docker ps (-l)
