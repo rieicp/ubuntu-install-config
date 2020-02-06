@@ -355,6 +355,8 @@ a2enmod rewrite
 service apache2 restart
 ```
 
+## 配置SSH的密钥登录
+
 然后，在 \~/.bashrc中加入：
 
 ```
