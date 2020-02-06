@@ -324,3 +324,57 @@ Set oracle JDK as the default JVM by running those two instructions:
 
 ### 其它命令
 
+
+
+
+
+=================================================================
+
+# Docker Image 创建，保存（提交）
+
+
+docker run -it ubuntu /bin/bash
+
+apt update -y
+apt upgrade -y
+apt install -y apache2 mysql-server mysql-client
+apt-get install -y software-properties-common
+add-apt-repository -y ppa:ondrej/php
+apt update -y 
+apt install -y php7.1 php7.1-mysql libapache2-mod-php7.1
+apt install -y php-xdebug php7.1-xml php7.1-mbstring php7.1-zip php7.1-gd php7.1-curl php7.1-json php7.1-soap
+apt install nano -y
+a2enmod rewrite
+service apache2 restart
+
+
+////////////// 在~/.bashrc中添加： /////////////////////////////////////
+if [[ $- == *i* ]]
+then
+    bind '"\e[A": history-search-backward'
+    bind '"\e[B": history-search-forward'
+fi
+/////////////////////////////////////////////////////////////////////
+
+docker ps (-l)
+//// CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+//// 69cc62646adc        ubuntu              "/bin/bash"         18 minutes ago      Up 18 minutes                           naughty_tu
+
+docker commit 69cc62646adc rieicp/lamp
+
+docker run -it -p 8888:80 rieicp/lamp /bin/bash
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
