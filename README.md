@@ -355,7 +355,8 @@ a2enmod rewrite
 service apache2 restart
 ```
 
-////////////// 在~/.bashrc中添加： /////////////////////////////////////
+然后，在 \~/.bashrc中加入：
+
 ```
 if [[ $- == *i* ]]
 then
@@ -363,8 +364,6 @@ then
     bind '"\e[B": history-search-forward'
 fi
 ```
-//////////////////////////////////////////////////////////////////////
-
 
 ```
 mkdir /root/.ssh/ && touch /root/.ssh/authorized_keys
