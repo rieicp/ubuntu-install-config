@@ -361,7 +361,20 @@ a2enmod rewrite
 service apache2 restart
 ```
 
-## 修改 php.ini (Xdebug)
+## 修改 /etc/apache2/sites-available/000-default.conf
+```
+<VirtualHost *:80>
+    ServerName docker
+    DocumentRoot "/home/docker/code/typo3/default"
+    <Directory  "/home/docker/code/typo3/default/">
+        Options +Indexes +Includes +FollowSymLinks +MultiViews
+        AllowOverride All
+        Require all granted
+    </Directory>
+</VirtualHost>
+```
+
+## 修改 /etc/php/7.1/apache2/php.ini
 ```
 post_max_size = 1024M
 upload_max_filesize = 1024M
