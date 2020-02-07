@@ -364,7 +364,7 @@ service apache2 restart
 ## 修改 /etc/apache2/sites-available/000-default.conf
 ```
 <VirtualHost *:80>
-    ServerName docker
+    ServerName docker.app
     DocumentRoot "/home/docker/code/typo3/default"
     <Directory  "/home/docker/code/typo3/default/">
         Options +Indexes +Includes +FollowSymLinks +MultiViews
