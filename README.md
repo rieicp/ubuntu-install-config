@@ -363,6 +363,10 @@ service apache2 restart
 
 ## 修改 php.ini (Xdebug)
 ```
+post_max_size = 1024M
+upload_max_filesize = 1024M
+
+;;[Xdebug]
 ;;用来显示错误信息
 display_errors = On
 html_errors = On
