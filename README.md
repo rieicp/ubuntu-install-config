@@ -451,6 +451,6 @@ docker ps (-l)
 docker commit 69cc62646adc rieicp/lamp
 ```
 ```
-docker run --rm -p 8888:80 -it -v ~/projects/etagen:/home/docker/code rieicp/lamp /bin/bash
+docker run --rm -p 8888:80 -it -v ~/projects/etagen:/home/docker/code rieicp/lamp
 ```
 
