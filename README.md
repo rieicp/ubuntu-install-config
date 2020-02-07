@@ -355,6 +355,7 @@ apt install -y php-xdebug php7.1-xml php7.1-mbstring php7.1-zip php7.1-gd php7.1
 apt install -y openssh-server
 apt install -y net-tools
 apt install -y nano
+apt install -y zip
 apt install -y unzip
 a2enmod rewrite
 service apache2 restart
