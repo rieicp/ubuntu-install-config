@@ -451,6 +451,6 @@ docker ps (-l)
 docker commit 69cc62646adc rieicp/lamp
 ```
 ```
-docker run --rm -p 8888:80 -it -v ~/projects/etagen:/home/docker/code rieicp/lamp
+docker run --rm -p 8888:80 -it -v ~/projects/etagen-typo3/default:/home/docker/code rieicp/lamp:default_typo3
 ```
 
