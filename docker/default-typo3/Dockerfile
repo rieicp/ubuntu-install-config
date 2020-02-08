@@ -13,4 +13,4 @@ ENTRYPOINT rm -f /etc/apache2/sites-available/000-default.conf && cp /tmp/000-de
     echo "127.0.0.1    docker.myapp" >> /etc/hosts && \
     /bin/bash
 
-#nwe@nwe-Laptop:~/projects/etagen-typo3/default$ phpunit -c _etagen-dev/UnitTests.xml
+#nwe@nwe-Laptop:~/projects/etagen-typo3/default$   phpunit -c _etagen-dev/Tests/UnitTests.xml
