@@ -451,6 +451,8 @@ docker ps (-l)
 docker commit 69cc62646adc rieicp/lamp
 ```
 ```
-docker run --rm -p 8888:80 -it -v ~/projects/etagen-typo3/default:/home/docker/code rieicp/lamp:default_typo3
+docker run --rm -e host_ip=`ifconfig | grep "192.168" | sed "s/.*inet\s\+\(.*\)\s\+netmask.*/\1/"` \
+           -v ~/projects/etagen-typo3/default:/home/docker/code  \
+           -p 8888:80 -it rieicp/lamp:default_typo3
 ```
 
