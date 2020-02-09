@@ -12,5 +12,5 @@ ENTRYPOINT rm -f /etc/apache2/sites-available/000-default.conf && cp /tmp/000-de
     cat /etc/php/7.1/apache2/php.ini | sed "s/xdebug.remote_host=192.168.0.115/xdebug.remote_host=$host_ip/" | tee /etc/php/7.1/apache2/php.ini && \
     echo "127.0.0.1    docker.myapp" >> /etc/hosts && \
     /bin/bash
-
+EXPOSE 80
 #nwe@nwe-Laptop:~/projects/etagen-typo3/default$   phpunit -c _etagen-dev/Tests/UnitTests.xml
