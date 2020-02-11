@@ -15,7 +15,8 @@ RUN apt install -y curl && apt install -y unzip && cd /tmp && unzip default-typo
 ## $host_ip: an env variable, which should be given in the `docker run` command line with '-e' option
 ##########
 ENTRYPOINT rm -f /etc/apache2/sites-available/000-default.conf && cp /tmp/000-default.conf /etc/apache2/sites-available/000-default.conf && \
-    cat /etc/php/7.2/apache2/php.ini | sed "s/xdebug.remote_host=192.168.0.115/xdebug.remote_host=$host_ip/" | tee /etc/php/7.2/apache2/php.ini && \
+#    cat /etc/php/7.2/apache2/php.ini | sed "s/xdebug.remote_host=192.168.0.115/xdebug.remote_host=$host_ip/" | tee /etc/php/7.2/apache2/php.ini && \
+    sed -i "s/xdebug.remote_host=192.168.0.115/xdebug.remote_host=$host_ip/" /etc/php/7.2/apache2/php.ini && \
     echo "127.0.0.1 docker.myapp" >> /etc/hosts && \
     service ssh restart && service apache2 restart && service mysql restart && \
     cd /home/docker/code/_etagen-dev/sql/default-typo3 && sh dbimport && cd /home/docker/code && \
