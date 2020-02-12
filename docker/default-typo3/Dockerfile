@@ -3,7 +3,8 @@ FROM rieicp/lamp:base
 COPY default-typo3.sql.zip /tmp/default-typo3.sql.zip
 COPY 000-default.conf /tmp/000-default.conf
 COPY phpunit-6.5.phar /usr/local/bin/phpunit
-RUN apt install -y curl && apt install -y unzip && cd /tmp && unzip default-typo3.sql.zip && rm -f /tmp/default-typo3.sql.zip && \
+
+RUN apt install -y iputils-ping && apt install -y curl && apt install -y unzip && cd /tmp && unzip default-typo3.sql.zip && rm -f /tmp/default-typo3.sql.zip && \
     service mysql start && echo 'create database `default-typo3`;' | mysql -uroot -proot && mysql -uroot -proot default-typo3 < /tmp/default-typo3.sql
 ##########
 ## $host_ip: an env variable, which should be given in the `docker run` command line with '-e' option
