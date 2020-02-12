@@ -4,7 +4,7 @@ COPY default-typo3.sql.zip /tmp/default-typo3.sql.zip
 COPY 000-default.conf /tmp/000-default.conf
 COPY phpunit-6.5.phar /usr/local/bin/phpunit
 COPY xdebug.conf /tmp/xdebug.conf
-RUN apt install -y curl && apt install -y unzip && cd /tmp && unzip default-typo3.sql.zip && rm -f /tmp/default-typo3.sql.zip && \
+RUN apt install -y iputils-ping && apt install -y curl && apt install -y unzip && cd /tmp && unzip default-typo3.sql.zip && rm -f /tmp/default-typo3.sql.zip && \
     service mysql start && echo 'create database `default-typo3`;' | mysql -uroot -proot && mysql -uroot -proot default-typo3 < /tmp/default-typo3.sql && \
     apt install -y php7.2 php7.2-mysql libapache2-mod-php7.2 && \
     apt install -y php-xdebug php7.2-xml php7.2-mbstring php7.2-zip php7.2-gd php7.2-curl php7.2-json php7.2-soap && \
