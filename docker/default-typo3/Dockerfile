@@ -12,7 +12,8 @@ RUN apt install -y iputils-ping && apt install -y curl && apt install -y unzip &
 ENTRYPOINT rm -f /etc/apache2/sites-available/000-default.conf && cp /tmp/000-default.conf /etc/apache2/sites-available/000-default.conf && \
     cat /etc/php/7.1/apache2/php.ini | sed "s/xdebug.remote_host=192.168.0.115/xdebug.remote_host=$host_ip/" | tee /etc/php/7.1/apache2/php.ini && \
     service ssh restart && service apache2 restart && service mysql restart && \
-    echo "127.0.0.1    docker.myapp" >> /etc/hosts && \
+    my_ip=`ifconfig | grep "172.17" | sed "s/[^172]*\(172.17.0.[0-9]\+\).*/\1/"` && echo "$my_ip docker.myapp" >> /etc/hosts && \
+    if [ ! -d "/builds" ]; then mkdir /builds && mkdir /builds/first-tests && ln -s /home/docker/code /builds/first-tests/default-typo3; fi && \
     /bin/bash
 EXPOSE 80
 #nwe@nwe-Laptop:~/projects/etagen-typo3/default$   phpunit -c _etagen-dev/Tests/UnitTests.xml
