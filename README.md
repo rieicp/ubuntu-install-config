@@ -453,6 +453,10 @@ docker commit 69cc62646adc rieicp/lamp
 ```
 docker run --rm -e host_ip=`ifconfig | grep "192.168" | sed "s/.*inet\s\+\(.*\)\s\+netmask.*/\1/"` \
            -v ~/projects/etagen-typo3/default:/home/docker/code  \
-           -p 8888:80 -it rieicp/lamp:default_typo3
+           -p 8888:80 -it rieicp/lamp:default_typo3_ver_9
 ```
 
+## 使用Dockerfile创建镜像
+```
+docker build -t rieicp/lamp:default_typo3_ver_9 .
+```
