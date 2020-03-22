@@ -19,6 +19,7 @@
 * 安装 MySQL Workbench
 * 处理 MySQL Access Error
 * 安装 SSH Server
+* 安装 Docker
 * 安装 JAVA
 * 安装 PHPStorm
 * 安装 Eclipse
@@ -67,16 +68,19 @@ ssh-keygen -t rsa -C "ning.wei@int-trade.de"
 cat ~/.ssh/id_rsa.pub
 ```
 
-### 安装 git, gitk, giggle, gedit, chromium, filezilla, chrome
+### 安装 nano, git, gitk, giggle, gedit, chromium, filezilla, chrome
 ```
-apt install git
-apt install gitk
-apt install giggle
-apt install gedit
-在软件中心查找/安装chrome 或 apt install chromium-browser
-在软件中心查找/安装filezilla 或 apt install filezilla
+sudo su
+apt install -y nano
+apt install -y git
+apt install -y gitk
+apt install -y giggle
+apt install -y gedit
+在软件中心查找/安装chromium 或 apt install -y chromium-browser
+在软件中心查找/安装filezilla 或 apt install -y filezilla
 
 ......安装Chrome......
+sudo su
 wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
 echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | tee /etc/apt/sources.list.d/google-chrome.list
 apt-get update 
@@ -110,6 +114,27 @@ Ubuntu 16.04
 apt install xfce4-notes
 ln -s /usr/bin/xfce4-notes /usr/bin/notes
 
+```
+
+### 安装 Docker
+```
+sudo su
+apt update -y
+apt remove -y docker docker-engine docker.io
+apt install -y docker.io
+systemctl start docker
+systemctl enable docker
+```
+#### Docker需要Root权限
+```
+sudo addgroup docker #添加docker组
+sudo gpasswd -a nwe docker #将现用户加入docker组
+然后重启
+```
+#### Docker pull, push 较慢，应该增加镜像服务器配置
+在/etc/default/docker文件中，加入：
+```
+DOCKER_OPTS="${DOCKER_OPTS} --registry-mirror=https://mirror.gcr.io"
 ```
 
 ### 安装中文输入法
@@ -245,6 +270,20 @@ apt install openssh-server
 
 查看SSH Server状态
 service ssh status
+```
+
+### 安装 Docker
+```
+sudo apt update
+sudo apt purge -y docker docker-engine docker.io
+sudo apt install -y docker.io
+sudo systemctl start docker
+sudo systemctl enable docker
+```
+若Docker pull, push 较慢，应该增加镜像服务器配置
+在/etc/default/docker文件中，加入：
+```
+DOCKER_OPTS="${DOCKER_OPTS} --registry-mirror=https://mirror.gcr.io"
 ```
 
 ### 安装 JAVA
