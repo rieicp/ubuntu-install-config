@@ -490,7 +490,8 @@ docker ps (-l)
 docker commit 69cc62646adc rieicp/lamp
 ```
 ```
-docker run --rm -e host_ip=`ifconfig | grep "192.168" | sed "s/[^192]*\(192.168.0.[0-9]\+\).*/\1/"` -e rootdir=public -v ~/test/symfony-web-doctrine:/home/docker/code -it rieicp/lamp:default_typo3
+docker run --rm -e host_ip=`ifconfig | grep "192.168" | sed "s/[^192]*\(192.168.0.[0-9]\+\).*/\1/"` \
+           -e rootdir=public -v ~/test/symfony-web-doctrine:/home/docker/code -it rieicp/lamp:default_typo3
 
 docker run --rm -e host_ip=`ifconfig | grep "192.168" | sed "s/[^192]*\(192.168.0.[0-9]\+\).*/\1/"` \
            -v ~/projects/etagen-typo3/default:/home/docker/code  \
