@@ -15,9 +15,9 @@ ENTRYPOINT rm -f /etc/apache2/sites-available/000-default.conf && cp /tmp/000-de
     echo "127.0.0.1 docker.myapp" >> /etc/hosts && \
     echo "sql-mode = NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION" >> /etc/mysql/mysql.conf.d/mysqld.cnf && \
     service ssh restart && service apache2 restart && service mysql restart && \
-    cp /home/docker/code/sql/db1/all.sql /tmp/default-typo3.sql && \
-    echo 'create database `default-typo3`;' | mysql -uroot -proot && mysql -uroot -proot default-typo3 < /tmp/default-typo3.sql && cd - && \
-    cd /home/docker/code && \
+    #cp /home/docker/code/sql/db1/all.sql /tmp/default-typo3.sql && \
+    #echo 'create database `default-typo3`;' | mysql -uroot -proot && mysql -uroot -proot default-typo3 < /tmp/default-typo3.sql && cd - && \
+    cd /home/docker/code && sh my-docker-init.sh && \
     /bin/bash
 EXPOSE 80
 #nwe@nwe-Laptop:~/projects/etagen-typo3/default$   phpunit -c _etagen-dev/Tests/UnitTests.xml
