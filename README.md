@@ -498,3 +498,4 @@ docker run --rm -e host_ip=`ifconfig | grep "192.168" | sed "s/[^192]*\(192.168.
            -p 8888:80 -it rieicp/lamp:default_typo3
 ```
 
+http://h2868196.stratoserver.net
