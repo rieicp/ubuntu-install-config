@@ -7,8 +7,9 @@ RUN apt install -y iputils-ping && apt install -y curl && apt install -y unzip &
     cd /tmp && tar xvfz akue.tgz && \
     mkdir /home/docker/projects && mv /tmp/akue /home/docker/projects/etagen-akue && \
     service ssh restart && service apache2 restart && service mysql restart && \
-    cp /home/docker/projects/etagen-akue/_etagen-dev/sql/k40467_prototyp_2019-03-27_12-12-57.sql.zip /tmp/ && unzip k40467_prototyp_2019-03-27_12-12-57.sql.zip && \
-    echo 'create database `akue`;' | mysql -uroot -proot && mysql -uroot -proot akue < /tmp/k40467_prototyp_2019-03-27_12-12-57.sql
+    cp /home/docker/projects/etagen-akue/_etagen-dev/sql/k40467_prototyp_2020-03-30_19-12-28.sql.zip /tmp/ && unzip k40467_prototyp_2020-03-30_19-12-28.sql.zip && \
+    echo 'create database `akue`;' | mysql -uroot -proot && mysql -uroot -proot akue < /tmp/k40467_prototyp_2020-03-30_19-12-28.sql && \
+    rm -f /tmp/*
 ENTRYPOINT sed -i "s/xdebug.remote_host=192.168.0.115/xdebug.remote_host=$host_ip/" /etc/php/7.1/apache2/php.ini && \
     echo "127.0.0.1 etagen-akue.docker" >> /etc/hosts && \
     echo "sql-mode = NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION" >> /etc/mysql/mysql.conf.d/mysqld.cnf && \
