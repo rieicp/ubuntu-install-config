@@ -23,7 +23,7 @@
 * 安装 JAVA
 * 安装 PHPStorm
 * 安装 Eclipse
-* 安装 kolourpaint
+* 安装 kolourpaint, shutter
 
 
 ### 安装 Sublime
@@ -359,10 +359,11 @@ Set oracle JDK as the default JVM by running those two instructions:
     ln -s /opt/eclipse/eclipse ~/Desktop/eclipse
 ```
 
-### 安装 kolourpaint
+### 安装 kolourpaint, shutter
 ```
   apt install kolourpaint4
 ```
+或者在Software Center中查找，安装
 
 ### 其它命令
 
