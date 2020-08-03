@@ -185,7 +185,7 @@ DOCKER_OPTS="${DOCKER_OPTS} --registry-mirror=https://mirror.gcr.io"
   ln -s /var/log/apache2/error.log apache2_error_log
   ln -s /var/log/mysql/error.log mysql_error_log
   ln -s /etc/mysql/my.cnf my.cnf
-
+  ln -s /etc/apache2/envvars apache_envvars
 
 Apache Vhost 配置文件：000-default.conf
 <VirtualHost *:80>
