@@ -9,9 +9,12 @@ chromedriver --verbose --url-base=wd/hub --port=4444 > /dev/null 2> /dev/null &
 #
 # /home/docker/code/vendor/behat/behat/bin/behat -c /home/docker/code/behat-no-drupal.dist.yml --suite=default
 
-cp /opt/docker/degov_project_DE_01.zip /tmp/degov_project_DE_01.zip
-cd /tmp
-unzip /tmp/degov_project_DE_01.zip
+FILE=/tmp/degov_project_DE_01.zip
+if [ ! -f "$FILE" ]; then
+  cp /opt/docker/degov_project_DE_01.zip /tmp/degov_project_DE_01.zip
+  cd /tmp
+  unzip /tmp/degov_project_DE_01.zip
+fi
 
 cat >> /home/docker/code/docroot/sites/default/settings.php << EOF
 \$databases['default']['default'] = array (
