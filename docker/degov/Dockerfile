@@ -7,7 +7,7 @@ COPY proxy.sh /tmp/proxy.sh
 COPY certificate.key /tmp/certificate.key
 COPY chromedriver /usr/local/bin/chromedriver
 COPY composer.phar /usr/local/bin/composer
-RUN chmod a+x /usr/local/bin/composer && \
+RUN chmod a+x /usr/local/bin/composer && chmod a+x /usr/local/bin/chromedriver && \
     mkdir /opt/docker/ && \
     mv /tmp/000-default.conf /tmp/xdebug.conf /tmp/proxy.sh /tmp/certificate.key /opt/docker/ && \
     sh /opt/docker/proxy.sh && \
