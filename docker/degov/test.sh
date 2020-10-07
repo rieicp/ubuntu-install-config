@@ -9,13 +9,6 @@ chromedriver --verbose --url-base=wd/hub --port=4444 > /dev/null 2> /dev/null &
 #
 # /home/docker/code/vendor/behat/behat/bin/behat -c /home/docker/code/behat-no-drupal.dist.yml --suite=default
 
-FILE=/tmp/degov_project_DE_01.zip
-if [ ! -f "$FILE" ]; then
-  cp /opt/docker/degov_project_DE_01.zip /tmp/degov_project_DE_01.zip
-  cd /tmp
-  unzip /tmp/degov_project_DE_01.zip
-fi
-
 cat >> /home/docker/code/docroot/sites/default/settings.php << EOF
 \$databases['default']['default'] = array (
   'database' => 'testing',
@@ -29,7 +22,14 @@ cat >> /home/docker/code/docroot/sites/default/settings.php << EOF
 );
 EOF
 
-drush sql:cli < /tmp/degov_project_DE_01.sql
+FILE=/tmp/degov_project_DE_01.zip
+if [ ! -f "$FILE" ]; then
+  cp /opt/docker/degov_project_DE_01.zip /tmp/degov_project_DE_01.zip
+  cd /tmp
+  unzip /tmp/degov_project_DE_01.zip
+  
+  drush sql:cli < /tmp/degov_project_DE_01.sql
+fi
 
 drush cr
 /home/docker/code/vendor/behat/behat/bin/behat -c /home/docker/code/behat.yml --suite=default --tags=$1
