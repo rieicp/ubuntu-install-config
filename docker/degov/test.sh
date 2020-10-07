@@ -4,9 +4,28 @@ chmod a+w /home/docker/code/docroot/sites/default/
 chmod a+w /home/docker/code/docroot/sites/default/settings.php
 chmod 777 -R /home/docker/code/docroot/sites/default/files
 chromedriver --verbose --url-base=wd/hub --port=4444 > /dev/null 2> /dev/null &
-#/home/docker/code/vendor/behat/behat/bin/behat -c /home/docker/code/behat-no-drupal.dist.yml --format=pretty --out=std --format=junit --out=/opt/testing/test-reports/ --strict --colors "$@"
+
+# cat >> /home/docker/code/docroot/sites/default/settings.php << EOF
+# unset(\$databases['default']);
+# EOF
+#
+# /home/docker/code/vendor/behat/behat/bin/behat -c /home/docker/code/behat-no-drupal.dist.yml --format=pretty --out=std --format=junit --out=/opt/testing/test-reports/ --strict --colors "$@"
 cp /opt/docker/degov_project_DE_01.zip /tmp/degov_project_DE_01.zip
 cd /tmp
 unzip /tmp/degov_project_DE_01.zip
+
+cat >> /home/docker/code/docroot/sites/default/settings.php << EOF
+\$databases['default']['default'] = array (
+  'database' => 'testing',
+  'username' => 'testing',
+  'password' => 'testing',
+  'prefix' => '',
+  'host' => '127.0.0.1',
+  'port' => '3306',
+  'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
+  'driver' => 'mysql',
+);
+EOF
+
 drush sql:cli < /tmp/degov_project_DE_01.sql
 /home/docker/code/vendor/behat/behat/bin/behat -c /home/docker/code/behat.yml --format=pretty --out=std --format=junit --out=/opt/testing/test-reports/ --strict --colors "$@"
