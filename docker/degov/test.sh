@@ -8,6 +8,7 @@ chromedriver --verbose --url-base=wd/hub --port=4444 > /dev/null 2> /dev/null &
 # EOF
 #
 # /home/docker/code/vendor/behat/behat/bin/behat -c /home/docker/code/behat-no-drupal.dist.yml --suite=default
+
 cp /opt/docker/degov_project_DE_01.zip /tmp/degov_project_DE_01.zip
 cd /tmp
 unzip /tmp/degov_project_DE_01.zip
@@ -25,5 +26,10 @@ cat >> /home/docker/code/docroot/sites/default/settings.php << EOF
 );
 EOF
 
-drush sql:cli < /tmp/degov_project_DE_01.sql && drush cr
+drush sql:cli < /tmp/degov_project_DE_01.sql
+
+drush en permissions_by_term
+drush en permissions_by_entity
+
+drush cr
 /home/docker/code/vendor/behat/behat/bin/behat -c /home/docker/code/behat.yml --suite=default
