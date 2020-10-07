@@ -25,5 +25,5 @@ cat >> /home/docker/code/docroot/sites/default/settings.php << EOF
 );
 EOF
 
-drush sql:cli < /tmp/degov_project_DE_01.sql && druch cr
+drush sql:cli < /tmp/degov_project_DE_01.sql && drush cr
 /home/docker/code/vendor/behat/behat/bin/behat -c /home/docker/code/behat.yml --suite=default
