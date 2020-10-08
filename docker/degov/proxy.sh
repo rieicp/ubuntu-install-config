@@ -104,5 +104,3 @@ EOF
 #cat >> /home/dev/.chromium-browser.init << EOF
 #CHROMIUM_FLAGS="--password-store=basic --proxy-server=http://${hostip} --proxy-bypass-list=127.0.0.1,localhost,gitlab.it.nrw.de,lv.gitrepo.it.nrw.de"
 #EOF
-
-source /etc/profile
