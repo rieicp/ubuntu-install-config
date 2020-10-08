@@ -34,6 +34,7 @@ RUN chmod a+x /usr/local/bin/composer && chmod a+x /usr/local/bin/chromedriver &
 #    echo "sql-mode = NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION" >> /etc/mysql/mysql.conf.d/mysqld.cnf && \
 #    service ssh restart && service apache2 restart && service mysql restart && \
 ENTRYPOINT service apache2 restart && service mysql restart && \
+      sh /opt/docker/proxy.sh && \
       cd /home/docker/code && \
       /bin/bash
 EXPOSE 80
