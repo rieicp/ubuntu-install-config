@@ -13,7 +13,7 @@ COPY degov_project_DE_just_installed_with_browser.zip /tmp/degov_project_DE_just
 RUN mv -f /tmp/test.sh /opt/docker/test.sh && \
     mv -f /tmp/drupal-8.9.6.de.po /opt/docker/drupal-8.9.6.de.po && \
     mv -f /tmp/degov_project_DE_just_installed_with_browser.zip /opt/docker/degov_project_DE_just_installed_with_browser.zip && \
-    mv -f /tmp/degov_project_DE_01.zip /opt/docker/degov_project_DE_01.zip && \
+    mv -f /tmp/degov_project_DE_01.zip /opt/docker/degov_project_DE_01.zip
 #    sh /opt/docker/proxy.sh && source /etc/profile
 #    rm -f /etc/apt/sources.list && cp /opt/docker/sources.list /etc/apt/sources.list && \
 #    apt update -y && \
