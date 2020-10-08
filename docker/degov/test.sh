@@ -12,7 +12,7 @@ DIR=/opt/docker/test-reports
 if [ ! -d "$DIR" ]; then
   mkdir "$DIR"
 fi
-mkdir /opt/docker/test-reports && chmod 777 /opt/docker/test-reports
+chmod 777 /opt/docker/test-reports
 
 chmod 777 -R /home/docker/code/docroot/sites/default
 chromedriver --verbose --url-base=wd/hub --port=4444 > /dev/null 2> /dev/null &
