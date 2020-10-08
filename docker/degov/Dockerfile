@@ -1,10 +1,10 @@
 FROM rieicp/lamp:base
 
-COPY 000-default.conf /tmp/000-default.conf
+#COPY 000-default.conf /tmp/000-default.conf
 COPY xdebug.conf /tmp/xdebug.conf
 #COPY sources.list /tmp/sources.list
 COPY proxy.sh /tmp/proxy.sh
-COPY certificate.key /tmp/certificate.key
+#COPY certificate.key /tmp/certificate.key
 COPY chromedriver /usr/local/bin/chromedriver
 COPY composer.phar /usr/local/bin/composer
 RUN chmod a+x /usr/local/bin/composer && chmod a+x /usr/local/bin/chromedriver && \
