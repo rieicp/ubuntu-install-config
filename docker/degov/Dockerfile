@@ -13,7 +13,7 @@ RUN chmod a+x /usr/local/bin/composer && chmod a+x /usr/local/bin/chromedriver &
     bash /opt/docker/proxy.sh && \
 #    rm -f /etc/apt/sources.list && cp /opt/docker/sources.list /etc/apt/sources.list && \
     apt update -y && \
-    apt install -y iputils-ping && apt install -y net-tools && apt install -y git && apt install -y nano && apt install -y curl && apt install -y zip && apt install -y unzip && apt install -y libnss3 &&\
+    apt install -y iputils-ping && apt install -y net-tools && apt install -y git && apt install -y nano && apt install -y curl && apt install -y wget && apt install -y zip && apt install -y unzip && apt install -y libnss3 &&\
 #    apt install -y php7.4 php7.4-mysql libapache2-mod-php7.4 && \
 #    apt install -y php-xdebug php7.4-xml php7.4-mbstring php7.4-zip php7.4-gd php7.4-curl php7.4-json php7.4-soap && \
     cat /opt/docker/xdebug.conf >> /etc/php/7.4/apache2/php.ini && \
