@@ -33,7 +33,7 @@ export HTTP_PROXY=\$proxy
 export HTTPS_PROXY=\$proxy
 export ftp_proxy=\$proxy
 export FTP_PROXY=\$proxy
-export no_proxy="127.0.0.1,localhost,gitlab.it.nrw.de,lv.gitrepo.it.nrw.de,drupal,drupal2,drupal2.local,drupal3,drupal.two,drupal.three,dvwa"
+export no_proxy="127.0.0.1,localhost,gitlab.it.nrw.de,lv.gitrepo.it.nrw.de,drupal,drupal2,drupal2.local,drupal3,drupal.two,drupal.three,dvwa,host.docker.internal"
 EOF
 
 
