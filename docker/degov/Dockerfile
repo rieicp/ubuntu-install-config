@@ -10,7 +10,7 @@ COPY composer.phar /usr/local/bin/composer
 RUN chmod a+x /usr/local/bin/composer && chmod a+x /usr/local/bin/chromedriver && \
     mkdir /opt/docker/ && \
     mv /tmp/000-default.conf /tmp/xdebug.conf /tmp/proxy.sh /tmp/certificate.key /opt/docker/ && \
-    sh /opt/docker/proxy.sh && \
+    bash /opt/docker/proxy.sh && \
 #    rm -f /etc/apt/sources.list && cp /opt/docker/sources.list /etc/apt/sources.list && \
     apt update -y && \
     apt install -y iputils-ping && apt install -y net-tools && apt install -y git && apt install -y nano && apt install -y curl && apt install -y zip && apt install -y unzip && apt install -y libnss3 &&\
@@ -34,7 +34,7 @@ RUN chmod a+x /usr/local/bin/composer && chmod a+x /usr/local/bin/chromedriver &
 #    echo "sql-mode = NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION" >> /etc/mysql/mysql.conf.d/mysqld.cnf && \
 #    service ssh restart && service apache2 restart && service mysql restart && \
 ENTRYPOINT service apache2 restart && service mysql restart && \
-      sh /opt/docker/proxy.sh && \
+      bash /opt/docker/proxy.sh && \
       cd /home/docker/code && \
       /bin/bash
 EXPOSE 80
