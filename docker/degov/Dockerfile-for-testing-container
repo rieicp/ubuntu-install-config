@@ -42,6 +42,7 @@ ENTRYPOINT rm -f /etc/apache2/sites-available/000-default.conf && cp /opt/docker
     echo "CREATE USER 'testing'@'localhost' IDENTIFIED BY 'testing';" | mysql -uroot -proot && \
     echo "GRANT ALL PRIVILEGES ON * . * TO 'testing'@'localhost';" | mysql -uroot -proot && \
     ln -s /home/docker/code/vendor/drush/drush/drush /usr/local/bin/drush && \
+    sh /opt/docker/proxy.sh && \
     cd /home/docker/code && \
     /bin/bash
 EXPOSE 80
