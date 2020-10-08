@@ -1,10 +1,10 @@
 FROM itnrw/lamp_php7.4:testing_basic
 
-#COPY 000-default.conf /tmp/000-default.conf
+COPY 000-default.conf /tmp/000-default.conf
 #COPY xdebug.conf /tmp/xdebug.conf
 #COPY sources.list /tmp/sources.list
 #COPY proxy.sh /tmp/proxy.sh
-COPY test.sh /tmp/test.sh
+#COPY test.sh /tmp/test.sh
 #COPY drupal-8.9.6.de.po /tmp/drupal-8.9.6.de.po
 COPY degov_project_DE_01.zip /tmp/degov_project_DE_01.zip
 COPY degov_project_DE_just_installed_with_browser.zip /tmp/degov_project_DE_just_installed_with_browser.zip
