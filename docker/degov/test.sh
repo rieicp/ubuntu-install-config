@@ -1,5 +1,13 @@
 wget https://ftp.drupal.org/files/translations/all/drupal/drupal-8.9.6.de.po && mv -f ./drupal-8.9.6.de.po /opt/docker/
+DIR=/home/docker/code/docroot/sites/default/files
+if [ ! -d "$DIR" ]; then
+  mkdir "$DIR"
+fi
+if [ ! -d "$DIR/translations" ]; then
+  mkdir "$DIR/translations"
+fi
 cp -f /opt/docker/drupal-8.9.6.de.po /home/docker/code/docroot/sites/default/files/translations/
+
 mkdir /opt/docker/test-reports && chmod 777 /opt/docker/test-reports
 chmod 777 -R /home/docker/code/docroot/sites/default
 chromedriver --verbose --url-base=wd/hub --port=4444 > /dev/null 2> /dev/null &
@@ -25,7 +33,7 @@ EOF
 
 FILE=/tmp/degov_project_DE_01.zip
 if [ ! -f "$FILE" ]; then
-  cp /opt/docker/degov_project_DE_01.zip /tmp/degov_project_DE_01.zip
+  cp /opt/docker/degov_project_DE_01.zip "$FILE"
   cd /tmp
   unzip /tmp/degov_project_DE_01.zip
   
