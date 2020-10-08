@@ -32,7 +32,7 @@ RUN mv -f /tmp/test.sh /opt/docker/test.sh && \
 ##########
 ENTRYPOINT rm -f /etc/apache2/sites-available/000-default.conf && cp /opt/docker/000-default.conf /etc/apache2/sites-available/000-default.conf && \
     sed -i "s/xdebug.remote_host=192.168.0.115/xdebug.remote_host=$host_ip/" /etc/php/7.4/apache2/php.ini && \
-    echo "127.0.0.1 drupal.two" >> /etc/hosts && \
+#    echo "127.0.0.1 drupal.two" >> /etc/hosts && \
 #    echo "sql-mode = NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION" >> /etc/mysql/mysql.conf.d/mysqld.cnf && \
     service apache2 restart && \
     service mysql restart && \
