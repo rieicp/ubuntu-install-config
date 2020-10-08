@@ -44,7 +44,7 @@ ENTRYPOINT rm -f /etc/apache2/sites-available/000-default.conf && cp /opt/docker
     ln -s /home/docker/code/vendor/drush/drush/drush /usr/local/bin/drush && \
     bash /opt/docker/proxy.sh && \
     cat >> /root/.profile << EOF \
-    source /etc/profile
+    source /etc/profile \
     EOF && \
     cd /home/docker/code && \
     /bin/bash
