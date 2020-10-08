@@ -8,7 +8,12 @@ if [ ! -d "$DIR/translations" ]; then
 fi
 cp -f /opt/docker/drupal-8.9.6.de.po /home/docker/code/docroot/sites/default/files/translations/
 
+DIR=/opt/docker/test-reports
+if [ ! -d "$DIR" ]; then
+  mkdir "$DIR"
+fi
 mkdir /opt/docker/test-reports && chmod 777 /opt/docker/test-reports
+
 chmod 777 -R /home/docker/code/docroot/sites/default
 chromedriver --verbose --url-base=wd/hub --port=4444 > /dev/null 2> /dev/null &
 
