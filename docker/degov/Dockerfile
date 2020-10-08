@@ -11,6 +11,9 @@ RUN chmod a+x /usr/local/bin/composer && chmod a+x /usr/local/bin/chromedriver &
     mkdir /opt/docker/ && \
     mv /tmp/000-default.conf /tmp/xdebug.conf /tmp/proxy.sh /tmp/certificate.key /opt/docker/ && \
     bash /opt/docker/proxy.sh && \
+    echo '\
+        source /etc/profile ; \
+    ' >> /root/.profile && \
 #    rm -f /etc/apt/sources.list && cp /opt/docker/sources.list /etc/apt/sources.list && \
     apt update -y && \
     apt install -y iputils-ping && apt install -y net-tools && apt install -y git && apt install -y nano && apt install -y curl && apt install -y zip && apt install -y unzip && apt install -y libnss3 &&\
