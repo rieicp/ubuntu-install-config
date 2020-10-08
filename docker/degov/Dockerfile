@@ -4,13 +4,12 @@ COPY 000-default.conf /tmp/000-default.conf
 COPY xdebug.conf /tmp/xdebug.conf
 #COPY sources.list /tmp/sources.list
 COPY proxy.sh /tmp/proxy.sh
-#COPY certificate.key /tmp/certificate.key
+COPY certificate.key /tmp/certificate.key
 COPY chromedriver /usr/local/bin/chromedriver
 COPY composer.phar /usr/local/bin/composer
 RUN chmod a+x /usr/local/bin/composer && chmod a+x /usr/local/bin/chromedriver && \
     mkdir /opt/docker/ && \
-#    mv /tmp/000-default.conf /tmp/xdebug.conf /tmp/proxy.sh /tmp/certificate.key /opt/docker/ && \
-    mv -f /tmp/000-default.conf /tmp/xdebug.conf /tmp/proxy.sh /opt/docker/ && \
+    mv /tmp/000-default.conf /tmp/xdebug.conf /tmp/proxy.sh /tmp/certificate.key /opt/docker/ && \
     bash /opt/docker/proxy.sh && \
 #    rm -f /etc/apt/sources.list && cp /opt/docker/sources.list /etc/apt/sources.list && \
     apt update -y && \
