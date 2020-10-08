@@ -21,7 +21,7 @@ chromedriver --verbose --url-base=wd/hub --port=4444 > /dev/null 2> /dev/null &
 # unset(\$databases['default']);
 # EOF
 #
-# /home/docker/code/vendor/behat/behat/bin/behat -c /home/docker/code/behat-no-drupal.dist.yml --suite=default
+# /home/docker/code/vendor/behat/behat/bin/behat -c /home/docker/code/docroot/profiles/contrib/degov/testing/behat/behat-no-drupal.dist.yml --suite=default
 
 cat >> /home/docker/code/docroot/sites/default/settings.php << EOF
 \$databases['default']['default'] = array (
@@ -46,4 +46,4 @@ if [ ! -f "$FILE" ]; then
 fi
 
 drush cr
-/home/docker/code/vendor/behat/behat/bin/behat -c /home/docker/code/behat.yml --suite=default --tags=$1
+/home/docker/code/vendor/behat/behat/bin/behat -c /home/docker/code/docroot/profiles/contrib/degov/testing/behat/behat.dist.yml --suite=default --tags=$1
