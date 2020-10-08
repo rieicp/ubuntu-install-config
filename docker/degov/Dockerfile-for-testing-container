@@ -13,9 +13,7 @@ COPY degov_project_DE_just_installed_with_browser.zip /tmp/degov_project_DE_just
 RUN mv -f /tmp/test.sh /opt/docker/test.sh && \
     mv -f /tmp/drupal-8.9.6.de.po /opt/docker/drupal-8.9.6.de.po && \
     mv -f /tmp/degov_project_DE_just_installed_with_browser.zip /opt/docker/degov_project_DE_just_installed_with_browser.zip && \
-    mv -f /tmp/degov_project_DE_01.zip /opt/docker/degov_project_DE_01.zip && \
-    sh /opt/docker/proxy.sh && \
-    echo "\nsource /etc/profile\n" >> /root/.bashrc
+    mv -f /tmp/degov_project_DE_01.zip /opt/docker/degov_project_DE_01.zip
 #    rm -f /etc/apt/sources.list && cp /opt/docker/sources.list /etc/apt/sources.list && \
 #    apt update -y && \
 #    apt install -y iputils-ping && apt install -y net-tools && apt install -y nano && apt install -y curl && apt install -y zip && apt install -y unzip && apt install -y libnss3 &&\
@@ -43,7 +41,6 @@ ENTRYPOINT rm -f /etc/apache2/sites-available/000-default.conf && cp /opt/docker
     echo "CREATE USER 'testing'@'localhost' IDENTIFIED BY 'testing';" | mysql -uroot -proot && \
     echo "GRANT ALL PRIVILEGES ON * . * TO 'testing'@'localhost';" | mysql -uroot -proot && \
     ln -s /home/docker/code/vendor/drush/drush/drush /usr/local/bin/drush && \
-    bash /opt/docker/proxy.sh && \
     cd /home/docker/code && \
     /bin/bash
 EXPOSE 80
