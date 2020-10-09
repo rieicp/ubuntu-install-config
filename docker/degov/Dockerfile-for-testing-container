@@ -45,10 +45,7 @@ ENTRYPOINT rm -f /etc/apache2/sites-available/000-default.conf && cp /opt/docker
     echo 'CREATE DATABASE testing;' | mysql -uroot -proot && \
     echo "CREATE USER 'testing'@'localhost' IDENTIFIED BY 'testing';" | mysql -uroot -proot && \
     echo "GRANT ALL PRIVILEGES ON * . * TO 'testing'@'localhost';" | mysql -uroot -proot && \
-    ##########
-    # TODO: comment mkdir -p mkdir -p /home/docker/code/docroot/sites/default/files/translations/
-    ##########
-    mkdir -p /home/docker/code/docroot/sites/default/files/translations/ && \
+#    mkdir -p /home/docker/code/docroot/sites/default/files/translations/ && \
     ln -s /home/docker/code/vendor/drush/drush/drush /usr/local/bin/drush && \
     ##########
     # TODO: move following comman line into commonfunctions.sh
