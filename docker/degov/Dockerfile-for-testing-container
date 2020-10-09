@@ -43,6 +43,7 @@ ENTRYPOINT rm -f /etc/apache2/sites-available/000-default.conf && cp /opt/docker
     mkdir -p /home/docker/code/docroot/sites/default/files/translations/ && \
     ln -s /home/docker/code/vendor/drush/drush/drush /usr/local/bin/drush && \
     ln -s /home/docker/code /home/docker/code/project && \
+    export BITBUCKET_CLONE_DIR=/home/docker/code && \
     cd /home/docker/code && \
     /bin/bash
 EXPOSE 80
