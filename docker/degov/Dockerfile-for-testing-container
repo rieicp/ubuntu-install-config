@@ -37,13 +37,22 @@ ENTRYPOINT rm -f /etc/apache2/sites-available/000-default.conf && cp /opt/docker
 #    echo "127.0.0.1 drupal.two" >> /etc/hosts && \
 #    echo "sql-mode = NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION" >> /etc/mysql/mysql.conf.d/mysqld.cnf && \
     service apache2 restart && \
+    ##########
+    # TODO: move following command lines into 'RUN' section above
+    ##########
     service mysql restart && \
 #    echo "\n\nskip-grant-tables\n" >> /etc/mysql/mysql.conf.d/mysqld.cnf && service mysql restart && \
     echo 'CREATE DATABASE testing;' | mysql -uroot -proot && \
     echo "CREATE USER 'testing'@'localhost' IDENTIFIED BY 'testing';" | mysql -uroot -proot && \
     echo "GRANT ALL PRIVILEGES ON * . * TO 'testing'@'localhost';" | mysql -uroot -proot && \
+    ##########
+    # TODO: comment mkdir -p mkdir -p /home/docker/code/docroot/sites/default/files/translations/
+    ##########
     mkdir -p /home/docker/code/docroot/sites/default/files/translations/ && \
     ln -s /home/docker/code/vendor/drush/drush/drush /usr/local/bin/drush && \
+    ##########
+    # TODO: move following comman line into commonfunctions.sh
+    ##########
     ln -s /home/docker/code /home/docker/code/project && \
     export BITBUCKET_CLONE_DIR=/home/docker/code && \
     cd /home/docker/code && \
