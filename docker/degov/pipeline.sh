@@ -3,7 +3,7 @@
 ACTION=install
 
 cd "$BITBUCKET_CLONE_DIR/../"
-git clone git@gitlab.it.nrw.de:weini01/running-degov-tests
+git clone https://gitlab.it.nrw.de/weini01/running-degov-tests.git
 rm -rf "$BITBUCKET_CLONE_DIR"
 mv -f running-degov-tests "$BITBUCKET_CLONE_DIR"
 
