@@ -49,7 +49,7 @@ ENTRYPOINT export BITBUCKET_CLONE_DIR=/home/docker/code/project && \
     echo "CREATE USER 'testing'@'localhost' IDENTIFIED BY 'testing';" | mysql -uroot -proot && \
     echo "GRANT ALL PRIVILEGES ON * . * TO 'testing'@'localhost';" | mysql -uroot -proot && \
 #    mkdir -p "$BITBUCKET_CLONE_DIR/docroot/sites/default/files/translations/" && \
-    ln -s "$BITBUCKET_CLONE_DIR/vendor/drush/drush/drush" /usr/local/bin/drush && \
-    cd $BITBUCKET_CLONE_DIR && \
+#    ln -s "$BITBUCKET_CLONE_DIR/vendor/drush/drush/drush" /usr/local/bin/drush && \
+    mkdir -p $BITBUCKET_CLONE_DIR && cd $BITBUCKET_CLONE_DIR && \
     /bin/bash
 EXPOSE 80
