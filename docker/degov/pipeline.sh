@@ -2,6 +2,15 @@
 
 ACTION=install
 
+cd "$BITBUCKET_CLONE_DIR/../"
+git clone git@gitlab.it.nrw.de:weini01/running-degov-tests
+rm -rf "$BITBUCKET_CLONE_DIR"
+mv -f running-degov-tests "$BITBUCKET_CLONE_DIR"
+
+
+ln -s "$BITBUCKET_CLONE_DIR/vendor/drush/drush/drush" /usr/local/bin/drush
+
+
 composer install
 git apply "$BITBUCKET_CLONE_DIR/patches/modified-degov-for-testing-pipelines.patch"
 composer dump-autoload
