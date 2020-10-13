@@ -35,7 +35,7 @@ chromedriver --verbose --url-base=wd/hub --port=4444 > /dev/null 2> /dev/null &
 # unset(\$databases['default']);
 # EOF
 #
-# $BITBUCKET_CLONE_DIR/project/vendor/behat/behat/bin/behat -c $BITBUCKET_CLONE_DIR/project/docroot/profiles/contrib/degov/testing/behat/behat-no-drupal.dist.yml --suite=default
+# $BITBUCKET_CLONE_DIR/project/vendor/behat/behat/bin/behat -c $BITBUCKET_CLONE_DIR/project/behat-no-drupal.dist.yml --suite=default
 
 cat >> $BITBUCKET_CLONE_DIR/project/docroot/sites/default/settings.php << EOF
 \$databases['default']['default'] = array (
@@ -60,4 +60,4 @@ if [ ! -f "$FILE" ]; then
 fi
 
 drush cr
-$BITBUCKET_CLONE_DIR/project/vendor/behat/behat/bin/behat -c $BITBUCKET_CLONE_DIR/project/docroot/profiles/contrib/degov/testing/behat/behat.dist.yml --suite=default --tags=$1
+$BITBUCKET_CLONE_DIR/project/vendor/behat/behat/bin/behat -c $BITBUCKET_CLONE_DIR/project/behat.dist.yml --suite=default --tags=$1
