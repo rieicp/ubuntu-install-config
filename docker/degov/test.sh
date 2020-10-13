@@ -56,5 +56,8 @@ if [ ! -f "$FILE" ]; then
   drush sql:cli < /tmp/degov_project_DE_01.sql
 fi
 
+drush en -y degov_demo_content
+drush en -y degov_devel
 drush cr
+
 $BITBUCKET_CLONE_DIR/project/vendor/behat/behat/bin/behat -c $BITBUCKET_CLONE_DIR/project/behat.dist.yml --tags=$1
