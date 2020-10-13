@@ -2,6 +2,7 @@ FROM itnrw/lamp_php7.4:testing_basic
 
 COPY 000-default.conf /tmp/000-default.conf
 COPY pipeline.sh /tmp/pipeline.sh
+COPY install.sh /tmp/install.sh
 COPY test.sh /tmp/test.sh
 #COPY xdebug.conf /tmp/xdebug.conf
 #COPY sources.list /tmp/sources.list
@@ -15,6 +16,7 @@ COPY composer-dir.tgz /tmp/composer-dir.tgz
 RUN mv -f /tmp/degov_project_DE_just_installed_with_browser.zip /opt/docker/degov_project_DE_just_installed_with_browser.zip && \
     mv -f /tmp/degov_project_DE_01.zip /opt/docker/degov_project_DE_01.zip && \
     mv -f /tmp/pipeline.sh /opt/docker/pipeline.sh && \
+    mv -f /tmp/install.sh /opt/docker/install.sh && \
     mv -f /tmp/test.sh /opt/docker/test.sh && \
     mkdir -p /root/.config && mv -f /tmp/composer-dir.tgz /root/.config/ && cd /root/.config/ && tar xvfz composer-dir.tgz && rm -f composer-dir.tgz && cd -
 #    mv -f /tmp/test.sh /opt/docker/test.sh && \
