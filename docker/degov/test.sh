@@ -1,12 +1,14 @@
+cd $BITBUCKET_CLONE_DIR/project/
+
 wget https://ftp.drupal.org/files/translations/all/drupal/drupal-8.9.6.de.po && mv -f ./drupal-8.9.6.de.po /opt/docker/
-DIR=/home/docker/code/docroot/sites/default/files
+DIR=$BITBUCKET_CLONE_DIR/project/docroot/sites/default/files
 if [ ! -d "$DIR" ]; then
   mkdir "$DIR"
 fi
 if [ ! -d "$DIR/translations" ]; then
   mkdir "$DIR/translations"
 fi
-cp -f /opt/docker/drupal-8.9.6.de.po /home/docker/code/docroot/sites/default/files/translations/
+cp -f /opt/docker/drupal-8.9.6.de.po $BITBUCKET_CLONE_DIR/project/docroot/sites/default/files/translations/
 
 DIR=/opt/docker/test-reports
 if [ ! -d "$DIR" ]; then
@@ -14,16 +16,16 @@ if [ ! -d "$DIR" ]; then
 fi
 chmod 777 /opt/docker/test-reports
 
-chmod 777 -R /home/docker/code/docroot/sites/default
+chmod 777 -R $BITBUCKET_CLONE_DIR/project/docroot/sites/default
 chromedriver --verbose --url-base=wd/hub --port=4444 > /dev/null 2> /dev/null &
 
-# cat >> /home/docker/code/docroot/sites/default/settings.php << EOF
+# cat >> $BITBUCKET_CLONE_DIR/project/docroot/sites/default/settings.php << EOF
 # unset(\$databases['default']);
 # EOF
 #
-# /home/docker/code/vendor/behat/behat/bin/behat -c /home/docker/code/docroot/profiles/contrib/degov/testing/behat/behat-no-drupal.dist.yml --suite=default
+# $BITBUCKET_CLONE_DIR/project/vendor/behat/behat/bin/behat -c $BITBUCKET_CLONE_DIR/project/docroot/profiles/contrib/degov/testing/behat/behat-no-drupal.dist.yml --suite=default
 
-cat >> /home/docker/code/docroot/sites/default/settings.php << EOF
+cat >> $BITBUCKET_CLONE_DIR/project/docroot/sites/default/settings.php << EOF
 \$databases['default']['default'] = array (
   'database' => 'testing',
   'username' => 'testing',
@@ -46,4 +48,4 @@ if [ ! -f "$FILE" ]; then
 fi
 
 drush cr
-/home/docker/code/vendor/behat/behat/bin/behat -c /home/docker/code/docroot/profiles/contrib/degov/testing/behat/behat.dist.yml --suite=default --tags=$1
+$BITBUCKET_CLONE_DIR/project/vendor/behat/behat/bin/behat -c $BITBUCKET_CLONE_DIR/project/docroot/profiles/contrib/degov/testing/behat/behat.dist.yml --suite=default --tags=$1
