@@ -11,6 +11,9 @@ composer install
 git apply "$BITBUCKET_CLONE_DIR/project/patches/modified-degov-for-testing-pipelines.patch"
 composer dump-autoload
 
+cp $BITBUCKET_CLONE_DIR/project/docroot/profiles/contrib/degov/testing/behat/behat.dist.yml $BITBUCKET_CLONE_DIR/project/behat.dist.yml
+cp $BITBUCKET_CLONE_DIR/project/docroot/profiles/contrib/degov/testing/behat/behat-no-drupal.dist.yml $BITBUCKET_CLONE_DIR/project/behat-no-drupal.dist.yml
+
 if [[ "install" == $ACTION ]]; then
   $BITBUCKET_CLONE_DIR/project/vendor/behat/behat/bin/behat -c $BITBUCKET_CLONE_DIR/project/behat-no-drupal.dist.yml
 elif [[ "features" == $ACTION ]]; then
