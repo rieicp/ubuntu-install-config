@@ -31,12 +31,6 @@ chmod 777 /opt/docker/test-reports
 chmod 777 -R $BITBUCKET_CLONE_DIR/project/docroot/sites/default
 chromedriver --verbose --url-base=wd/hub --port=4444 > /dev/null 2> /dev/null &
 
-# cat >> $BITBUCKET_CLONE_DIR/project/docroot/sites/default/settings.php << EOF
-# unset(\$databases['default']);
-# EOF
-#
-# $BITBUCKET_CLONE_DIR/project/vendor/behat/behat/bin/behat -c $BITBUCKET_CLONE_DIR/project/behat-no-drupal.dist.yml --suite=default
-
 cat >> $BITBUCKET_CLONE_DIR/project/docroot/sites/default/settings.php << EOF
 \$settings['hash_salt'] = 'OLko5ab67oEWwJwnTk1CTWrbxivPB5TL4u-iaJxALrU-O4RrUQtzKAMQq83iKC3x6cMTvsXyfQ';
 
@@ -62,4 +56,4 @@ if [ ! -f "$FILE" ]; then
 fi
 
 drush cr
-$BITBUCKET_CLONE_DIR/project/vendor/behat/behat/bin/behat -c $BITBUCKET_CLONE_DIR/project/behat.dist.yml --suite=default --tags=$1
+$BITBUCKET_CLONE_DIR/project/vendor/behat/behat/bin/behat -c $BITBUCKET_CLONE_DIR/project/behat.dist.yml --tags=$1
