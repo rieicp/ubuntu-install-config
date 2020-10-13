@@ -1,4 +1,16 @@
+#!/usr/bin/env bash
+
+git clone https://gitlab.it.nrw.de/weini01/running-degov-tests.git
+mv -f running-degov-tests "$BITBUCKET_CLONE_DIR/project"
+
 cd $BITBUCKET_CLONE_DIR/project/
+composer install
+ln -s "$BITBUCKET_CLONE_DIR/project/vendor/drush/drush/drush" /usr/local/bin/drush
+git apply "$BITBUCKET_CLONE_DIR/project/patches/modified-degov-for-testing-pipelines.patch"
+
+composer dump-autoload
+
+cp $BITBUCKET_CLONE_DIR/project/docroot/profiles/contrib/degov/testing/behat/behat.dist.yml $BITBUCKET_CLONE_DIR/project/behat.dist.yml
 
 wget https://ftp.drupal.org/files/translations/all/drupal/drupal-8.9.6.de.po && mv -f ./drupal-8.9.6.de.po /opt/docker/
 DIR=$BITBUCKET_CLONE_DIR/project/docroot/sites/default/files
