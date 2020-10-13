@@ -10,7 +10,7 @@ git apply "$BITBUCKET_CLONE_DIR/project/patches/modified-degov-for-testing-pipel
 
 composer dump-autoload
 
-cp $BITBUCKET_CLONE_DIR/project/docroot/profiles/contrib/degov/testing/behat/behat.dist.yml $BITBUCKET_CLONE_DIR/project/behat.dist.yml
+cp $BITBUCKET_CLONE_DIR/project/docroot/profiles/contrib/degov/testing/behat/behat-no-drupal.dist.yml $BITBUCKET_CLONE_DIR/project/behat-no-drupal.dist.yml
 
 wget https://ftp.drupal.org/files/translations/all/drupal/drupal-8.9.6.de.po && mv -f ./drupal-8.9.6.de.po /opt/docker/
 DIR=$BITBUCKET_CLONE_DIR/project/docroot/sites/default/files
