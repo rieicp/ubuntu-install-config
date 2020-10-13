@@ -14,6 +14,10 @@ composer dump-autoload
 cp $BITBUCKET_CLONE_DIR/project/docroot/profiles/contrib/degov/testing/behat/behat.dist.yml $BITBUCKET_CLONE_DIR/project/behat.dist.yml
 cp $BITBUCKET_CLONE_DIR/project/docroot/profiles/contrib/degov/testing/behat/behat-no-drupal.dist.yml $BITBUCKET_CLONE_DIR/project/behat-no-drupal.dist.yml
 
+chromedriver --verbose --url-base=wd/hub --port=4444 > /dev/null 2> /dev/null &
+
+drush sql-drop
+
 if [[ "install" == $ACTION ]]; then
   $BITBUCKET_CLONE_DIR/project/vendor/behat/behat/bin/behat -c $BITBUCKET_CLONE_DIR/project/behat-no-drupal.dist.yml
 elif [[ "features" == $ACTION ]]; then
