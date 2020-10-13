@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+echo "127.0.0.1 host.docker.internal" >> /etc/hosts
 
 git clone https://gitlab.it.nrw.de/weini01/running-degov-tests.git
 mv -f running-degov-tests "$BITBUCKET_CLONE_DIR/project"
