@@ -9,6 +9,8 @@ COPY test.sh /tmp/test.sh
 #COPY proxy.sh /tmp/proxy.sh
 #COPY drupal-8.9.6.de.po /tmp/drupal-8.9.6.de.po
 COPY degov_project_DE_01.zip /tmp/degov_project_DE_01.zip
+COPY degov_project_DE_02_installed_degov_demo_content.zip /tmp/degov_project_DE_02_installed_degov_demo_content.zip
+COPY degov_project_DE_03_installed_degov_devel.zip /tmp/degov_project_DE_03_installed_degov_devel.zip
 COPY degov_project_DE_just_installed_with_browser.zip /tmp/degov_project_DE_just_installed_with_browser.zip
 COPY composer-dir.tgz /tmp/composer-dir.tgz
 #COPY certificate.key /tmp/certificate.key
