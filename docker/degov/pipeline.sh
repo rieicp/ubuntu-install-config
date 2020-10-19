@@ -13,7 +13,7 @@ composer install
 git apply "$BITBUCKET_CLONE_DIR/project/patches/modified-degov-for-testing-pipelines.patch"
 composer dump-autoload
 
-FILE=degov_project_DE_03_installed_degov_devel.zip
+FILE=degov_project_DE_01.zip
 SQLFILE="$(echo $FILE | sed 's/.zip/.sql/')"
 #if [ ! -f "$BITBUCKET_CLONE_DIR/project/docroot/profiles/contrib/degov/testing/lfs_data/degov-stable-8.3.1.sql.gz" ]; then
   cp "/opt/docker/$FILE" "/tmp/$FILE"
