@@ -11,7 +11,11 @@
 ## 流程命令
 ### Bitbucket pipeline
 ```
-bash /opt/docker/pipeline.sh
+bash /opt/docker/pipeline.sh contnet db_dump
+bash /opt/docker/pipeline.sh entities db_dump
+。。。
+bash /opt/docker/pipeline.sh contnet install
+bash /opt/docker/pipeline.sh entities install
 ```
 
 ### 自定义流程
