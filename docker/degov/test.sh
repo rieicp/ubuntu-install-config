@@ -34,7 +34,6 @@ chromedriver --verbose --url-base=wd/hub --port=4444 > /dev/null 2> /dev/null &
 
 cat >> $BITBUCKET_CLONE_DIR/project/docroot/sites/default/settings.php << EOF
 \$settings['hash_salt'] = 'OLko5ab67oEWwJwnTk1CTWrbxivPB5TL4u-iaJxALrU-O4RrUQtzKAMQq83iKC3x6cMTvsXyfQ';
-
 \$databases['default']['default'] = array (
   'database' => 'testing',
   'username' => 'testing',
@@ -48,13 +47,14 @@ cat >> $BITBUCKET_CLONE_DIR/project/docroot/sites/default/settings.php << EOF
 EOF
 
 FILE=degov_project_DE_03_installed_degov_devel.zip
+SQLFILE="$(echo $FILE | sed 's/.zip/.sql/')"
 if [ ! -f "/tmp/$FILE" ]; then
   cp "/opt/docker/$FILE" "/tmp/$FILE"
   cd /tmp
   unzip "/tmp/$FILE"
   
-  drush sql:cli < "/tmp/$FILE"
-  rm -f "/tmp/$FILE"
+  drush sql-query --file="/tmp/$SQLFILE"
+  rm -f "/tmp/$FILE" "/tmp/$SQLFILE"
 fi
 
 #drush en -y degov_demo_content
