@@ -15,13 +15,11 @@ composer dump-autoload
 
 FILE=degov_project_DE_03_installed_degov_devel.zip
 SQLFILE="$(echo $FILE | sed 's/.zip/.sql/')"
-GZFILE="$SQLFILE.gz"
 #if [ ! -f "$BITBUCKET_CLONE_DIR/project/docroot/profiles/contrib/degov/testing/lfs_data/degov-stable-8.3.1.sql.gz" ]; then
   cp "/opt/docker/$FILE" "/tmp/$FILE"
   cd /tmp
   unzip "/tmp/$FILE"
-  gzip "/tmp/$SQLFILE"
-  mv -f "/tmp/$GZFILE" $BITBUCKET_CLONE_DIR/project/docroot/profiles/contrib/degov/testing/lfs_data/degov-stable-8.3.1.sql.gz
+  mv -f "/tmp/$SQLFILE" $BITBUCKET_CLONE_DIR/project/docroot/profiles/contrib/degov/testing/lfs_data/degov-stable-8.3.1.sql
   rm -f "/tmp/$FILE" "/tmp/$SQLFILE"
 #fi
 
