@@ -47,17 +47,18 @@ cat >> $BITBUCKET_CLONE_DIR/project/docroot/sites/default/settings.php << EOF
 );
 EOF
 
-FILE=/tmp/degov_project_DE_01.zip
-if [ ! -f "$FILE" ]; then
-  cp /opt/docker/degov_project_DE_01.zip "$FILE"
+FILE=degov_project_DE_03_installed_degov_devel.zip
+if [ ! -f "/tmp/$FILE" ]; then
+  cp "/opt/docker/$FILE" "/tmp/$FILE"
   cd /tmp
-  unzip /tmp/degov_project_DE_01.zip
+  unzip "/tmp/$FILE"
   
-  drush sql:cli < /tmp/degov_project_DE_01.sql
+  drush sql:cli < "/tmp/$FILE"
+  rm -f "/tmp/$FILE"
 fi
 
-drush en -y degov_demo_content
-drush en -y degov_devel
+#drush en -y degov_demo_content
+#drush en -y degov_devel
 drush cr
 
 $BITBUCKET_CLONE_DIR/project/vendor/behat/behat/bin/behat -c $BITBUCKET_CLONE_DIR/project/behat.dist.yml --tags=$1
