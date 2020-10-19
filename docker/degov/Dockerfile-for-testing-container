@@ -17,6 +17,8 @@ COPY composer-dir.tgz /tmp/composer-dir.tgz
 #COPY chromedriver /usr/local/bin/chromedriver
 RUN mv -f /tmp/degov_project_DE_just_installed_with_browser.zip /opt/docker/degov_project_DE_just_installed_with_browser.zip && \
     mv -f /tmp/degov_project_DE_01.zip /opt/docker/degov_project_DE_01.zip && \
+    mv -f /tmp/degov_project_DE_02_installed_degov_demo_content.zip /opt/docker/degov_project_DE_02_installed_degov_demo_content.zip && \
+    mv -f /tmp/degov_project_DE_03_installed_degov_devel.zip /opt/docker/degov_project_DE_03_installed_degov_devel.zip && \
     mv -f /tmp/pipeline.sh /opt/docker/pipeline.sh && \
     mv -f /tmp/install.sh /opt/docker/install.sh && \
     mv -f /tmp/test.sh /opt/docker/test.sh && \
