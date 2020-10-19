@@ -61,4 +61,4 @@ fi
 #drush en -y degov_devel
 drush cr
 
-$BITBUCKET_CLONE_DIR/project/vendor/behat/behat/bin/behat -c $BITBUCKET_CLONE_DIR/project/behat.dist.yml --tags=$1
+$BITBUCKET_CLONE_DIR/project/vendor/behat/behat/bin/behat --format=pretty --out=std --format=junit --out=$BITBUCKET_CLONE_DIR/test-reports/ --strict --colors -c $BITBUCKET_CLONE_DIR/project/behat.dist.yml --tags=$1
