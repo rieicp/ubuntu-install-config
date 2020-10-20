@@ -3,15 +3,15 @@
 FEATURE=$1
 ACTION=$2
 
-git clone https://gitlab.it.nrw.de/weini01/running-degov-tests.git
+#git clone https://gitlab.it.nrw.de/weini01/running-degov-tests.git
 mv -f running-degov-tests "$BITBUCKET_CLONE_DIR/project"
 
 
 ln -s "$BITBUCKET_CLONE_DIR/project/vendor/drush/drush/drush" /usr/local/bin/drush
-cd "$BITBUCKET_CLONE_DIR/project"
-composer install
-git apply "$BITBUCKET_CLONE_DIR/project/patches/modified-degov-for-testing-pipelines.patch"
-composer dump-autoload
+#cd "$BITBUCKET_CLONE_DIR/project"
+#composer install
+#git apply "$BITBUCKET_CLONE_DIR/project/patches/modified-degov-for-testing-pipelines.patch"
+#composer dump-autoload
 
 FILE=degov_project_DE_01.zip
 SQLFILE="$(echo $FILE | sed 's/.zip/.sql/')"
