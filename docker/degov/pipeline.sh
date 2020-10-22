@@ -14,7 +14,7 @@ ln -s "$BITBUCKET_CLONE_DIR/project/vendor/drush/drush/drush" /usr/local/bin/dru
 #git apply "$BITBUCKET_CLONE_DIR/project/patches/modified-degov-for-testing-pipelines.patch"
 #composer dump-autoload
 
-FILE=degov_project_DE_in_pipeline_just_installed.zip
+FILE=degov_project_DE_01.zip
 SQLFILE="$(echo $FILE | sed 's/.zip/.sql/')"
 #if [ ! -f "$BITBUCKET_CLONE_DIR/project/docroot/profiles/contrib/degov/testing/lfs_data/degov-stable-8.3.1.sql.gz" ]; then
   cp "/opt/docker/$FILE" "/tmp/$FILE"
