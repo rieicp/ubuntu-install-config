@@ -4,8 +4,10 @@ FEATURE=$1
 ACTION=$2
 
 #git clone https://gitlab.it.nrw.de/weini01/running-degov-tests.git
-rm -rf "$BITBUCKET_CLONE_DIR/project"
-mv -f running-degov-tests "$BITBUCKET_CLONE_DIR/project"
+if [[ -d running-degov-tests ]]; then
+	rm -rf "$BITBUCKET_CLONE_DIR/project"
+	mv -f running-degov-tests "$BITBUCKET_CLONE_DIR/project"
+fi
 
 ln -s "$BITBUCKET_CLONE_DIR/project/vendor/drush/drush/drush" /usr/local/bin/drush
 #cd "$BITBUCKET_CLONE_DIR/project"
