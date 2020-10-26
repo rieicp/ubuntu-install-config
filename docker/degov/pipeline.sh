@@ -9,9 +9,6 @@ if [[ -d running-degov-tests ]]; then
 	mv -f running-degov-tests "$BITBUCKET_CLONE_DIR/project"
 fi
 
-if [[ -z /usr/local/bin/drush ]]; then
-	ln -s "$BITBUCKET_CLONE_DIR/project/vendor/drush/drush/drush" /usr/local/bin/drush
-fi
 #cd "$BITBUCKET_CLONE_DIR/project"
 #composer install
 #git apply "$BITBUCKET_CLONE_DIR/project/patches/modified-degov-for-testing-pipelines.patch"
