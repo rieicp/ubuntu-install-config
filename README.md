@@ -262,6 +262,16 @@ Ubuntu 16.04
 
 然后重启Mysql
     service mysql restart
+    
+之后最好继续登录到mysql中，执行
+    GRANT ALL PRIVILEGES ON *.* TO 'root'@'localhost' IDENTIFIED BY '<password>';
+    FLUSH PRIVILEGES;
+    
+然后再重启Mysql
+    service mysql restart
+
+（此时可以取消配置文件中的 skip-grant-tables 了）
+
 ```
 
 ### 安装 SSH Server
