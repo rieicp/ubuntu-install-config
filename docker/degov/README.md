@@ -9,6 +9,9 @@
 - xdegug.conf
 
 ## 流程命令
+### Bitbucket create DB dump
+bash "$BITBUCKET_CLONE_DIR/project/docroot/profiles/contrib/degov/scripts/pipeline/shared_scripts/create-stable-db-dump.sh"
+
 ### Bitbucket pipeline
 ```
 bash /opt/docker/pipeline.sh content db_dump
