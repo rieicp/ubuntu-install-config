@@ -3,16 +3,10 @@
 FEATURE=$1
 ACTION=$2
 
-#git clone https://gitlab.it.nrw.de/weini01/running-degov-tests.git
-if [[ -d running-degov-tests ]]; then
+if [[ -d $MY_PROJECT ]]; then
 	rm -rf "$BITBUCKET_CLONE_DIR/project"
-	mv -f running-degov-tests "$BITBUCKET_CLONE_DIR/project"
+	mv -f $MY_PROJECT "$BITBUCKET_CLONE_DIR/project"
 fi
-
-#cd "$BITBUCKET_CLONE_DIR/project"
-#composer install
-#git apply "$BITBUCKET_CLONE_DIR/project/patches/modified-degov-for-testing-pipelines.patch"
-#composer dump-autoload
 
 FILE=degov_project_DE_pipeline_install_install_00000.zip
 SQLFILE="$(echo $FILE | sed 's/.zip/.sql/')"
@@ -25,5 +19,3 @@ SQLFILE="$(echo $FILE | sed 's/.zip/.sql/')"
 #fi
 
 bash "$BITBUCKET_CLONE_DIR/project/docroot/profiles/contrib/degov/scripts/pipeline/acceptance_tests.sh" $FEATURE $ACTION
-
-#$BITBUCKET_CLONE_DIR/project/docroot/profiles/contrib/degov/testing/lfs_data/degov-stable-8.3.1.sql.gz
