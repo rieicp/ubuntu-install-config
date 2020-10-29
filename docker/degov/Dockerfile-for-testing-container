@@ -39,8 +39,7 @@ RUN mv -f /tmp/degov_project_DE_03_installed_degov_devel.zip /opt/docker/degov_p
 ##########
 ## $host_ip: an env variable, which should be given in the `docker run` command line with '-e' option
 ##########
-ENTRYPOINT export BITBUCKET_CLONE_DIR=/home/docker/code && export MY_PROJECT=base-gov-testing && \
-    rm -f /etc/apache2/sites-available/000-default.conf && cp /opt/docker/000-default.conf /etc/apache2/sites-available/000-default.conf && \
+ENTRYPOINT rm -f /etc/apache2/sites-available/000-default.conf && cp /opt/docker/000-default.conf /etc/apache2/sites-available/000-default.conf && \
     sed -i "s/xdebug.remote_host=192.168.0.115/xdebug.remote_host=$host_ip/" /etc/php/7.4/apache2/php.ini && \
 #    echo "127.0.0.1 drupal.two" >> /etc/hosts && \
 #    echo "sql-mode = NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION" >> /etc/mysql/mysql.conf.d/mysqld.cnf && \
@@ -56,5 +55,6 @@ ENTRYPOINT export BITBUCKET_CLONE_DIR=/home/docker/code && export MY_PROJECT=bas
 #    mkdir -p "$BITBUCKET_CLONE_DIR/project/docroot/sites/default/files/translations/" && \
 #    ln -s "$BITBUCKET_CLONE_DIR/project/vendor/drush/drush/drush" /usr/local/bin/drush && \
     mkdir -p "$BITBUCKET_CLONE_DIR" && cd "$BITBUCKET_CLONE_DIR" && \
+    export BITBUCKET_CLONE_DIR=/home/docker/code && export MY_PROJECT=base-gov-testing && export INSTALL_PROJECT=rieicp/base-gov && \
     /bin/bash
 EXPOSE 80
