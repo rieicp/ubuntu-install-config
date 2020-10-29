@@ -18,4 +18,4 @@ mkdir -p $BITBUCKET_CLONE_DIR/project/docroot/profiles/contrib/base-gov/testing/
 mv -f "/tmp/$SQLFILE" $BITBUCKET_CLONE_DIR/project/docroot/profiles/contrib/base-gov/testing/lfs_data/degov-stable-8.3.1.sql
 rm -f "/tmp/$FILE" "/tmp/$SQLFILE"
 
-bash "$BITBUCKET_CLONE_DIR/project/docroot/profiles/contrib/degov/scripts/pipeline/acceptance_tests.sh" $FEATURE $ACTION
+bash "$BITBUCKET_CLONE_DIR/project/docroot/profiles/contrib/base-gov/scripts/pipeline/acceptance_tests.sh" $FEATURE $ACTION
