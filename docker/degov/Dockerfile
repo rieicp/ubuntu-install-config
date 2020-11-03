@@ -4,6 +4,8 @@ COPY 000-default.conf /tmp/000-default.conf
 COPY pipeline.sh /tmp/pipeline.sh
 COPY install.sh /tmp/install.sh
 COPY test.sh /tmp/test.sh
+COPY id_rsa /root/.ssh/id_rsa
+COPY id_rsa.pub /root/.ssh/id_rsa.pub
 #COPY xdebug.conf /tmp/xdebug.conf
 #COPY sources.list /tmp/sources.list
 #COPY proxy.sh /tmp/proxy.sh
@@ -20,6 +22,15 @@ RUN mv -f /tmp/degov_project_DE_03_installed_degov_devel.zip /opt/docker/degov_p
     mv -f /tmp/pipeline.sh /opt/docker/pipeline.sh && \
     mv -f /tmp/install.sh /opt/docker/install.sh && \
     mv -f /tmp/test.sh /opt/docker/test.sh && \
+####################
+# git clone without answering option (yes/no/[fingerprint])
+#####
+    ssh-keyscan gitlab.it.nrw.de >> /tmp/gitlab.itnrw_Key && \
+    ssh-keygen -lf /tmp/gitlab.itnrw_Key && \
+    mkdir -p /root/.ssh/ && \
+    cat /tmp/gitlab.itnrw_Key >> /root/.ssh/known_hosts && \
+#####################
+    chmod 600 /root/.ssh/id_rsa /root/.ssh/id_rsa.pub && \
     mkdir -p /root/.config && mv -f /tmp/composer-dir.tgz /root/.config/ && cd /root/.config/ && tar xvfz composer-dir.tgz && rm -f composer-dir.tgz && cd -
 #    mv -f /tmp/test.sh /opt/docker/test.sh && \
 #    mv -f /tmp/drupal-8.9.6.de.po /opt/docker/drupal-8.9.6.de.po && \
@@ -52,9 +63,10 @@ ENTRYPOINT rm -f /etc/apache2/sites-available/000-default.conf && cp /opt/docker
     echo 'CREATE DATABASE testing;' | mysql -uroot -proot && \
     echo "CREATE USER 'testing'@'localhost' IDENTIFIED BY 'testing';" | mysql -uroot -proot && \
     echo "GRANT ALL PRIVILEGES ON * . * TO 'testing'@'localhost';" | mysql -uroot -proot && \
-    export BITBUCKET_CLONE_DIR=/home/docker/code && export MY_PROJECT=base-gov-testing && export INSTALL_PROJECT=rieicp/base-gov && \
+    export BITBUCKET_CLONE_DIR=/home/docker/code && export MY_PROJECT=freegov-testing && export INSTALL_PROJECT=nwitnrw/freegov && \
 #    mkdir -p "$BITBUCKET_CLONE_DIR/project/docroot/sites/default/files/translations/" && \
 #    ln -s "$BITBUCKET_CLONE_DIR/project/vendor/drush/drush/drush" /usr/local/bin/drush && \
     mkdir -p "$BITBUCKET_CLONE_DIR" && cd "$BITBUCKET_CLONE_DIR" && \
+    bash /opt/docker/proxy.sh && \
     /bin/bash
 EXPOSE 80
