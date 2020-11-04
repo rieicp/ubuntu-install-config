@@ -1,0 +1,11 @@
+FROM ubuntu:latest
+ARG DEBIAN_FRONTEND=noninteractive
+RUN apt update -y && \
+    apt install -y apache2 mysql-server mysql-client && \
+    apt install -y php7.4 php7.4-mysql libapache2-mod-php7.4 && \
+    apt install -y php-xdebug php7.4-xml php7.4-mbstring php7.4-zip php7.4-gd php7.4-curl php7.4-json php7.4-soap && \
+    a2enmod rewrite && service apache2 restart
+ENTRYPOINT service apache2 restart && service mysql restart && \
+      cd /home/docker/code && \
+      /bin/bash
+EXPOSE 80

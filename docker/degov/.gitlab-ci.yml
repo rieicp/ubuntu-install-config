@@ -1,0 +1,16 @@
+image: docker:latest
+
+services:
+  - docker:dind
+
+stages:
+  - docker-build
+Docker-Build:
+  stage: docker-build
+  script:
+    - mv Dockerfile-for-testing-container Dockerfile
+    - cat my_password.txt | docker login --username rieicp --password-stdin
+    - docker build -t rieicp/testing-degov .
+    - docker push rieicp/testing-degov
+  tags:
+    - docker
