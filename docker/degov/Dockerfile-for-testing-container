@@ -65,9 +65,9 @@ ENTRYPOINT rm -f /etc/apache2/sites-available/000-default.conf && cp /opt/docker
     echo 'CREATE DATABASE testing;' | mysql -uroot -proot && \
     echo "CREATE USER 'testing'@'localhost' IDENTIFIED BY 'testing';" | mysql -uroot -proot && \
     echo "GRANT ALL PRIVILEGES ON * . * TO 'testing'@'localhost';" | mysql -uroot -proot && \
-    export BITBUCKET_CLONE_DIR=/home/docker/code && export MY_PROJECT=freegov-testing && export INSTALL_PROJECT=nwitnrw/freegov && \
-#    mkdir -p "$BITBUCKET_CLONE_DIR/project/docroot/sites/default/files/translations/" && \
-#    ln -s "$BITBUCKET_CLONE_DIR/project/vendor/drush/drush/drush" /usr/local/bin/drush && \
-    mkdir -p "$BITBUCKET_CLONE_DIR" && cd "$BITBUCKET_CLONE_DIR" && \
+    export CI_CLONE_DIR=/home/docker/code && export MY_PROJECT=freegov-testing && export INSTALL_PROJECT=nwitnrw/freegov && \
+#    mkdir -p "$CI_CLONE_DIR/project/docroot/sites/default/files/translations/" && \
+#    ln -s "$CI_CLONE_DIR/project/vendor/drush/drush/drush" /usr/local/bin/drush && \
+    mkdir -p "$CI_CLONE_DIR" && cd "$CI_CLONE_DIR" && \
     /bin/bash
 EXPOSE 80
