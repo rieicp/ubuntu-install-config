@@ -1,0 +1,35 @@
+image: docker:latest
+options:
+  docker: true
+  # size: 2x
+
+pipelines:
+  default:
+    - step:
+        name: Docker Build
+#        caches:
+#          - composer
+        script:
+          - mv Dockerfile-for-testing-container Dockerfile
+          - cat my_password.txt | docker login --username rieicp --password-stdin
+          - docker build -t rieicp/bb_testing .
+          - docker push rieicp/bb_testing
+        services:
+          - docker
+
+#image: docker:latest
+#options:
+#  docker: true
+#  # size: 2x
+#
+#pipelines:
+#  default:
+#    - step:
+#      name: Docker Build
+#      script:
+#        - mv Dockerfile-for-lamp-container Dockerfile
+#        - cat my_password.txt | docker login --username rieicp --password-stdin
+#        - docker build -t rieicp/bb_lamp .
+#        - docker push rieicp/bb_lamp
+#      services:
+#        - docker:dind

@@ -1,4 +1,4 @@
-FROM rieicp/lamp:base
+FROM rieicp/bb_lamp
 
 COPY 000-default.conf /tmp/000-default.conf
 COPY xdebug.conf /tmp/xdebug.conf
@@ -9,7 +9,7 @@ RUN chmod a+x /usr/local/bin/composer && \
     mkdir /opt/docker/ && \
     mv /tmp/000-default.conf /tmp/xdebug.conf /tmp/certificate.key /opt/docker/ && \
     apt update -y && \
-    apt install -y gnupg tar iputils-ping net-tools git nano curl wget zip unzip libnss3 &&\
+    apt install -y gnupg tar vim nano iputils-ping net-tools git nano curl wget zip unzip libnss3 &&\
     cd /tmp && tar xvfz chromedriver.tgz && mv chromedriver /usr/local/bin/chromedriver && chmod a+x /usr/local/bin/chromedriver && cd - && \
     cat /opt/docker/xdebug.conf >> /etc/php/7.4/apache2/php.ini && \
     #a2enmod rewrite && service apache2 restart && \

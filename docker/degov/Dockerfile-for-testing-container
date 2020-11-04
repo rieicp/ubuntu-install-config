@@ -1,4 +1,4 @@
-FROM rieicp/base-for-testing-degov:latest
+FROM rieicp/bb_base_for_testing:latest
 
 COPY 000-default.conf /tmp/000-default.conf
 COPY pipeline.sh /tmp/pipeline.sh
@@ -65,7 +65,7 @@ ENTRYPOINT rm -f /etc/apache2/sites-available/000-default.conf && cp /opt/docker
     echo 'CREATE DATABASE testing;' | mysql -uroot -proot && \
     echo "CREATE USER 'testing'@'localhost' IDENTIFIED BY 'testing';" | mysql -uroot -proot && \
     echo "GRANT ALL PRIVILEGES ON * . * TO 'testing'@'localhost';" | mysql -uroot -proot && \
-    export CI_CLONE_DIR=/home/docker/code && export MY_PROJECT=freegov-testing && export INSTALL_PROJECT=nwitnrw/freegov && \
+    export CI_CLONE_DIR=/home/docker/code && export MY_PROJECT=freegov-testing && export INSTALL_PROJECT=degov/degov && \
 #    mkdir -p "$CI_CLONE_DIR/project/docroot/sites/default/files/translations/" && \
 #    ln -s "$CI_CLONE_DIR/project/vendor/drush/drush/drush" /usr/local/bin/drush && \
     mkdir -p "$CI_CLONE_DIR" && cd "$CI_CLONE_DIR" && \
