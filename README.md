@@ -187,7 +187,7 @@ DOCKER_OPTS="${DOCKER_OPTS} --registry-mirror=https://mirror.gcr.io"
   ln -s /etc/mysql/my.cnf my.cnf
   ln -s /etc/apache2/envvars apache_envvars
 
-Apache Vhost 配置文件：000-default.conf
+##########Apache Vhost 配置文件：000-default.conf
 <VirtualHost *:80>
     ServerName login_oauth
     DocumentRoot "/home/nwe/projects/login_oauth"
@@ -197,6 +197,36 @@ Apache Vhost 配置文件：000-default.conf
         Require local
     </Directory>
 </VirtualHost>
+
+#############Apache SSL Vhost 配置文件： default-ssl.conf
+<IfModule mod_ssl.c>
+        <VirtualHost _default_:443>
+                ServerAdmin ning.wei@int-trade.de
+                ServerName example.com
+                DocumentRoot "/home/nwe/test/php"
+                <Directory  "/home/nwe/test/php/">
+                  Options +Indexes +Includes +FollowSymLinks +MultiViews
+                  AllowOverride All
+                  Require local
+                </Directory>
+
+                ErrorLog ${APACHE_LOG_DIR}/error.log
+                CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+                SSLEngine on
+                SSLCertificateFile      /etc/ssl/certs/apache-selfsigned.crt
+                SSLCertificateKeyFile /etc/ssl/private/apache-selfsigned.key
+
+                <FilesMatch "\.(cgi|shtml|phtml|php)$">
+                                SSLOptions +StdEnvVars
+                </FilesMatch>
+                <Directory /usr/lib/cgi-bin>
+                                SSLOptions +StdEnvVars
+                </Directory>
+
+        </VirtualHost>
+</IfModule>
+
 
 
 ;;;;;; php.ini ;;;;;;
