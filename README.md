@@ -35,8 +35,9 @@ Ubuntu 18.04
 
   创建sublime命令快捷方式
     ln -s /snap/sublime-text/xxxxx/opt/sublime_text/sublime_text /usr/local/bin/sublime
+```
 
-Ubuntu 18.04
+Ubuntu 18.04 Command Lines
 ```
 sudo apt update
 sudo apt install apt-transport-https ca-certificates curl software-properties-common
