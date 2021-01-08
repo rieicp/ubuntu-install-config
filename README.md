@@ -133,6 +133,7 @@ Ubuntu 16.04
   a2enmod proxy
   a2enmod proxy_http
   a2enmod headers
+  a2enmod ssl
   service apache2 restart
 
 在自定义的config目录中创建链接
