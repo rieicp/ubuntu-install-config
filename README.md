@@ -117,28 +117,6 @@ Ubuntu 16.04
   Google搜索'opera deb download'
 ```
 
-
-### 安装 Docker
-```
-sudo su
-apt update -y
-apt remove -y docker docker-engine docker.io
-apt install -y docker.io
-systemctl start docker
-systemctl enable docker
-```
-#### Docker需要Root权限
-```
-sudo addgroup docker #添加docker组
-sudo gpasswd -a nwe docker #将现用户加入docker组
-然后重启
-```
-#### Docker pull, push 较慢，应该增加镜像服务器配置
-在/etc/default/docker文件中，加入：
-```
-DOCKER_OPTS="${DOCKER_OPTS} --registry-mirror=https://mirror.gcr.io"
-```
-
 ### 安装 LAMP
 ```
   apt install apache2 mysql-server mysql-client
@@ -235,7 +213,7 @@ xdebug.max_nesting_level = 400
 
 ```
 
-## 安装adminer
+### 安装adminer
 ```
   mkdir /usr/share/adminer
   wget "http://www.adminer.org/latest.php" -O /usr/share/adminer/latest.php
@@ -266,13 +244,51 @@ flush privileges;
 quit;
 ```
 
-
 ### 安装 SSH Server
 ```
 apt install openssh-server
 
 查看SSH Server状态
 service ssh status
+```
+
+### 安装 ansible
+```
+apt-add-repository ppa:ansible/ansible
+apt update && sudo apt -y install ansible
+```
+或者
+```
+echo "deb http://ppa.launchpad.net/ansible/ansible/ubuntu trusty main" >> /etc/apt/sources.list
+apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 93C4A3FD7BB9C367
+apt-get update
+apt-get install -y ansible
+```
+若出现待安装的依赖软件包无法安装的错误，可能是因为系统中已安装的某个依赖软件包版本过高，需要降级
+如
+```
+apt install libpython2.7-minimal=2.7.15~rc1-1
+```
+
+### 安装 Docker
+```
+sudo su
+apt update -y
+apt remove -y docker docker-engine docker.io
+apt install -y docker.io
+systemctl start docker
+systemctl enable docker
+```
+#### Docker需要Root权限
+```
+sudo addgroup docker #添加docker组
+sudo gpasswd -a nwe docker #将现用户加入docker组
+然后重启
+```
+#### Docker pull, push 较慢，应该增加镜像服务器配置
+在/etc/default/docker文件中，加入：
+```
+DOCKER_OPTS="${DOCKER_OPTS} --registry-mirror=https://mirror.gcr.io"
 ```
 
 ### 安装 JAVA
