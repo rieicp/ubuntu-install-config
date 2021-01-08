@@ -150,8 +150,11 @@ DOCKER_OPTS="${DOCKER_OPTS} --registry-mirror=https://mirror.gcr.io"
 另外
   apt install php-xdebug php7.1-xml php7.1-mbstring php7.1-zip php7.1-gd php7.1-curl php7.1-json php7.1-soap
 
-激活Apache Rewrite模块:
+激活Apache模块:
   a2enmod rewrite
+  a2enmod proxy
+  a2enmod proxy_http
+  a2enmod headers
   service apache2 restart
 
 在自定义的config目录中创建链接
