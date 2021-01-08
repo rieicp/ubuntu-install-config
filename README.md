@@ -11,12 +11,9 @@
 * SSH-Key
 * 安装 git, gitk, giggle, gedit, chromium, filezilla, chrome
 * 安装 opera
-* 安装 Sticky Notes
-* 安装中文输入法
 * 安装 LAMP
 * 安装 adminer
 * 安装 composer
-* 安装 MySQL Workbench
 * 处理 MySQL Access Error
 * 安装 SSH Server
 * 安装 Docker
@@ -120,24 +117,6 @@ Ubuntu 16.04
   Google搜索'opera deb download'
 ```
 
-### 安装 Sticky Notes
-#### (a) indicator-stickynotes
-```
-(注意，Ubuntu 16.04下选择无反色效果，看不出所选的内容，不好)
-(XUbuntu 18.04自带Notes，无须额外安装)
-(应该只在Ubuntu 18.04下安装)
-
------ 命令行 -----
-  add-apt-repository ppa:umang/indicator-stickynotes
-  apt update
-  apt install indicator-stickynotes
-```
-#### (b) xfce4-notes
-```
-apt install xfce4-notes
-ln -s /usr/bin/xfce4-notes /usr/bin/notes
-
-```
 
 ### 安装 Docker
 ```
@@ -158,29 +137,6 @@ sudo gpasswd -a nwe docker #将现用户加入docker组
 在/etc/default/docker文件中，加入：
 ```
 DOCKER_OPTS="${DOCKER_OPTS} --registry-mirror=https://mirror.gcr.io"
-```
-
-### 安装中文输入法
-```
-首先安装中文语言
-
-然后安装Fcitx
-
-  Ubuntu 18.04/XUbuntu 18.04
-    在软件中心搜索'fcitx'，安装列出的所有三个软件。
-
-  Ubuntu 16.04
-    apt install fcitx
-
-接着安装Google拼音
-  apt install fcitx-googlepinyin
-
-在系统设置（System Setting）> 语言支持（Language Support）下选择Fcitx
-
-重启动电脑，点击键盘图标，然后点击Configure Current Input Method，
-此时会在桌面工具栏中出现小企鹅图标（Fcitx）。点击，选择设置Fcitx（ConfigureFcitx）。
-将show current language前的对钩取消。在搜索栏中找到选择你想安装的输入法，
-例如Google Pinyin。然后就可以使用了。使用时可通过Ctrl+空格，进行输入法切换。
 ```
 
 ### 安装 LAMP
@@ -296,16 +252,6 @@ Commands:
   mv composer.phar /usr/local/bin/composer
 ```
 
-### 安装 MySQL Workbench
-```
-Ubuntu 18.04 / XUbuntu 18.04
-  软件中心
-
-Ubuntu 16.04
-  download DEB from
-    https://dev.mysql.com/downloads/workbench/
-```
-
 ### 处理 MySQL Access Error
 ```
 若出现 MySQL Error 错误: 'Access denied for user 'root'@'localhost'
@@ -333,20 +279,6 @@ apt install openssh-server
 
 查看SSH Server状态
 service ssh status
-```
-
-### 安装 Docker
-```
-sudo apt update
-sudo apt purge -y docker docker-engine docker.io
-sudo apt install -y docker.io
-sudo systemctl start docker
-sudo systemctl enable docker
-```
-若Docker pull, push 较慢，应该增加镜像服务器配置
-在/etc/default/docker文件中，加入：
-```
-DOCKER_OPTS="${DOCKER_OPTS} --registry-mirror=https://mirror.gcr.io"
 ```
 
 ### 安装 JAVA
@@ -401,25 +333,6 @@ Set oracle JDK as the default JVM by running those two instructions:
 
 注册码Registration Code
   http://idea.lanyus.com/
-```
-
-### 安装 Eclipse
-```
-下载64位
-    http://mirrors.ustc.edu.cn/eclipse/oomph/epp/2018-12/R/eclipse-inst-linux64.tar.gz
-
-下载32位
-    http://mirrors.ustc.edu.cn/eclipse/technology/epp/downloads/release/neon/3/eclipse-jee-neon-3-linux-gtk.tar.gz
-
-解压缩
-    tar xvfz
-
-拷贝到/opt
-    mv eclipse /opt/
-
-建立链接
-    ln -s /opt/eclipse/eclipse /usr/local/bin/eclipse
-    ln -s /opt/eclipse/eclipse ~/Desktop/eclipse
 ```
 
 ### 安装 kolourpaint, shutter
