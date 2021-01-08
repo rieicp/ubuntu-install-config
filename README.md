@@ -256,25 +256,16 @@ Commands:
 ```
 
 ### 处理 MySQL Access Error
+首先，`sudo su`，切换到root账号，然后运行`mysql`
+在mysql中，
 ```
-若出现 MySQL Error 错误: 'Access denied for user 'root'@'localhost'
-则需要编辑 /etc/mysql/mysql.conf.d/mysqld.cnf
-在 [mysqld] 章节添加如下命令
-    skip-grant-tables
-
-然后重启Mysql
-    service mysql restart
-    
-之后最好继续登录到mysql中，执行
-    GRANT ALL PRIVILEGES ON *.* TO 'root'@'localhost' IDENTIFIED BY '<password>';
-    FLUSH PRIVILEGES;
-    
-然后再重启Mysql
-    service mysql restart
-
-（此时可以取消配置文件中的 skip-grant-tables 了）
-
+use mysql;
+update user set authentication_string=PASSWORD("root") where User='root';
+update user set plugin="mysql_native_password" where User='root';  # THIS LINE
+flush privileges;
+quit;
 ```
+
 
 ### 安装 SSH Server
 ```
