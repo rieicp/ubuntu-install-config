@@ -242,6 +242,8 @@ use mysql;
 update user set authentication_string=PASSWORD("root") where User='root';
 update user set plugin="mysql_native_password" where User='root';  # THIS LINE
 flush privileges;
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'localhost' IDENTIFIED BY 'root';
+FLUSH PRIVILEGES;
 quit;
 ```
 
