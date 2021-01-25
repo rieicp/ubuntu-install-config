@@ -203,6 +203,8 @@ xdebug.dump.REQUEST = *
 
 ;;远程调试配置信息
 xdebug.remote_enable=On
+;;;;;;;;;;; remote_autostart用于curl请求中进入断点
+xdebug.remote_autostart = 1
 xdebug.remote_host=localhost
 xdebug.remote_port=9000
 xdebug.remote_handler=dbgp
