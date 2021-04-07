@@ -190,7 +190,7 @@ Ubuntu 16.04
 
 
 
-;;;;;; php.ini ;;;;;;
+;;;;;; php.ini (php7.1及以下);;;;;;
 ;;[xdebug]
 ;;zend_extension = /usr/lib/php/20160303/xdebug.so
 
@@ -211,6 +211,28 @@ xdebug.remote_handler=dbgp
 xdebug.remote_mod=req
 xdebug.idekey=PHPSTORM
 
+
+xdebug.max_nesting_level = 400
+
+```
+
+;;;;;; php.ini (php7.2及以上);;;;;;
+;;用来显示错误信息
+display_errors = On
+html_errors = On
+
+;;显示堆栈信息
+xdebug.dump.REQUEST = *
+
+;;远程调试配置信息
+xdebug.remote_enable=On
+;;xdebug.start_with_request = 1
+xdebug.remote_host=localhost
+xdebug.remote_port=9003
+xdebug.remote_handler=dbgp
+;;xdebug.remote_mod=req
+xdebug.mode=debug
+xdebug.idekey=PHPSTORM
 
 xdebug.max_nesting_level = 400
 
