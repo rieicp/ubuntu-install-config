@@ -320,6 +320,11 @@ DOCKER_OPTS="${DOCKER_OPTS} --registry-mirror=https://mirror.gcr.io"
 
 ```
 apt-get remove openjdk*
+
+apt install openjdk-8-jdk
+
+
+==== (optional) ====
 添加PPA并使用以下3个命令安装Oracle Java 8
 add-apt-repository ppa:webupd8team/java
 
