@@ -214,8 +214,6 @@ xdebug.idekey=PHPSTORM
 
 xdebug.max_nesting_level = 400
 
-```
-
 ;;;;;; php.ini (php7.2及以上);;;;;;
 ;;用来显示错误信息
 display_errors = On
