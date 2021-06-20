@@ -279,8 +279,8 @@ service ssh status
 
 ### 安装 ansible
 ```
-apt-add-repository ppa:ansible/ansible
-apt update && sudo apt -y install ansible
+apt-add-repository -y ppa:ansible/ansible
+apt update -y && sudo apt -y install ansible
 ```
 或者
 ```
