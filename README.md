@@ -119,14 +119,14 @@ Ubuntu 16.04
 
 ### 安装 LAMP
 ```
-  apt install apache2 mysql-server mysql-client
-  apt-get install software-properties-common
-  add-apt-repository ppa:ondrej/php
-  apt update
-  apt install php7.1 php7.1-mysql libapache2-mod-php7.1
+  apt install -y apache2 mysql-server mysql-client
+  apt-get install -y software-properties-common
+  add-apt-repository -y ppa:ondrej/php
+  apt update -y
+  apt install -y php7.1 php7.1-mysql libapache2-mod-php7.1
 
 另外
-  apt install php-xdebug php7.1-xml php7.1-mbstring php7.1-zip php7.1-gd php7.1-curl php7.1-json php7.1-soap
+  apt install -y php-xdebug php7.1-xml php7.1-mbstring php7.1-zip php7.1-gd php7.1-curl php7.1-json php7.1-soap
 
 激活Apache模块:
   a2enmod rewrite
