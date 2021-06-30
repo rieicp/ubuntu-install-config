@@ -297,12 +297,12 @@ apt install libpython2.7-minimal=2.7.15~rc1-1
 
 ### 安装 Docker
 ```
-sudo su
-apt update -y
-apt remove -y docker docker-engine docker.io
-apt install -y docker.io
-systemctl start docker
-systemctl enable docker
+apt install apt-transport-https ca-certificates curl software-properties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
+sudo apt update
+apt-cache policy docker-ce
+sudo apt install docker-ce
 ```
 #### Docker需要Root权限
 ```
