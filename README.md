@@ -17,6 +17,7 @@
 * 处理 MySQL Access Error
 * 安装 SSH Server
 * 安装 Docker
+* 安装 docker compose
 * 安装 JAVA
 * 安装 PHPStorm
 * 安装 Eclipse
@@ -315,6 +316,13 @@ sudo gpasswd -a nwe docker #将现用户加入docker组
 ```
 DOCKER_OPTS="${DOCKER_OPTS} --registry-mirror=https://mirror.gcr.io"
 ```
+
+### 安装 docker compose
+```
+sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+```
+
 
 ### 安装 JAVA
 
